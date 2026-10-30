@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harsh Upadhyay | Software Developer</title>
+<meta name="description" content="Harsh Upadhyay — B.Tech CSIT student and aspiring software development engineer focused on Java, Spring Boot, and data structures.">
+<meta name="theme-color" content="#0c0f14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+<style>
+/* ===== THEME (matched to the reference screenshots: deep navy, cyan→blue gradient, teal accent bar) ===== */
+:root {
+  --bg: #0c0f14;
+  --bg-alt: #111622;
+  --surface: #1b202a;
+  --surface-2: #232a36;
+  --border: #2c3442;
+  --text: #f1f4f9;
+  --muted: #a3acbb;
+  --cyan: #22d3ee;
+  --blue: #60a5fa;
+  --teal: #2dd4bf;
+  --grad: linear-gradient(90deg, #22d3ee, #60a5fa);
+  --ink: #06242c;
+  --easy: #4ade80;
+  --medium: #fbbf24;
+  --hard: #f87171;
+  --radius: 22px;
+  --shadow: 0 14px 40px rgba(0, 0, 0, .4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(900px 500px at 85% -5%, rgba(45, 212, 191, .08), transparent 60%), var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { width: min(1120px, 90%); margin: 0 auto; }
+section { padding: 88px 0; }
+.alt { background: var(--bg-alt); border-top: 1px solid rgba(34, 211, 238, .12); }
+h1, h2, .brand { font-family: "Fraunces", Georgia, serif; }
+
+/* Header */
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(12, 15, 20, .85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; }
+.brand .logo {
+  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--grad); color: var(--ink); font-weight: 800; font-family: "Space Grotesk", sans-serif;
+}
+nav ul { display: flex; gap: 26px; list-style: none; }
+nav a { color: var(--muted); font-size: .95rem; transition: color .2s; }
+nav a:hover { color: var(--cyan); }
+.menu-btn { display: none; background: none; border: 1px solid var(--border); color: var(--text);
+  border-radius: 999px; padding: 6px 14px; font-size: 1.1rem; cursor: pointer; }
+
+/* Hero */
+.hero { padding: 96px 0 72px; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+.eyebrow { color: var(--teal); font-weight: 600; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
+h1 { font-size: clamp(2.3rem, 5.2vw, 3.8rem); line-height: 1.1; margin: 16px 0 20px; font-weight: 800; letter-spacing: -.01em; }
+.lead { color: var(--muted); font-size: 1.1rem; max-width: 56ch; }
+.btns { display: flex; flex-wrap: wrap; gap: 14px; margin: 30px 0 24px; }
+.btn {
+  padding: 15px 28px; border-radius: 999px; font-weight: 600; border: 1px solid var(--border);
+  background: rgba(255, 255, 255, .03); text-align: center;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.btn:hover { transform: translateY(-2px); border-color: var(--cyan); }
+.btn.primary { background: var(--grad); color: var(--ink); border: none; box-shadow: 0 10px 30px rgba(34, 211, 238, .28); }
+.socials { display: flex; gap: 20px; color: var(--muted); font-size: .95rem; }
+.socials a:hover { color: var(--cyan); }
+.avatar-wrap { position: relative; justify-self: center; }
+.avatar-wrap img {
+  width: min(320px, 70vw); aspect-ratio: 1; object-fit: cover; border-radius: 32px;
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.badge {
+  position: absolute; left: -18px; bottom: 24px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 10px 14px; box-shadow: var(--shadow); font-size: .85rem;
+}
+.badge small { display: block; color: var(--muted); }
+
+/* Hero info card with green glow */
+.info-card {
+  position: relative; overflow: hidden; margin-top: 56px; padding: 30px 34px;
+  background: linear-gradient(160deg, #1c212b, #151a23); border: 1px solid var(--border); border-radius: 28px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.info-card::after {
+  content: ""; position: absolute; right: -60px; bottom: -80px; width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(45, 212, 160, .35), transparent 65%); pointer-events: none;
+}
+.info-card small { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; display: block; }
+.info-card b { font-size: 1.2rem; font-weight: 600; position: relative; z-index: 1; }
+
+/* Section titles with teal bar */
+.sec-title {
+  font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -.01em;
+  display: flex; align-items: center; gap: 16px;
+}
+.sec-title::before { content: ""; width: 6px; height: 1em; border-radius: 4px; background: linear-gradient(180deg, var(--teal), var(--cyan)); }
+.sec-sub { color: var(--muted); margin: 14px 0 38px; font-size: 1.08rem; max-width: 70ch; }
+
+/* Cards */
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px;
+  transition: transform .25s, border-color .25s;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(34, 211, 238, .5); }
+.card h3 { margin-bottom: 10px; font-size: 1.2rem; font-weight: 600; }
+.card p { color: var(--muted); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+.three .card h4 { color: var(--cyan); margin-bottom: 4px; }
+
+/* Skills */
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.skill-list { font-size: 1.05rem; color: var(--text); margin-bottom: 18px; }
+.icons { display: flex; flex-wrap: wrap; gap: 12px; }
+.icons span {
+  width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+  background: #141922; border: 1px solid var(--border);
+}
+.icons img { width: 26px; height: 26px; }
+.bar { height: 8px; border-radius: 999px; background: #151a23; margin-top: 22px; overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: inherit; background: var(--grad); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.chip { padding: 6px 14px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); font-size: .88rem; }
+
+/* LeetCode / GitHub */
+.leet-card {
+  max-width: 760px; padding: 18px; border-radius: 30px; background: #232933; border: 1px solid var(--border);
+}
+.leet-card img { width: 100%; border-radius: 14px; }
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 18px; text-align: center; }
+.stat b { display: block; font-size: 3rem; line-height: 1.1; color: var(--cyan); font-weight: 700; }
+.stat small { color: var(--muted); }
+.e { color: var(--easy) !important; } .m { color: var(--medium) !important; } .h { color: var(--hard) !important; }
+.heatmap { overflow-x: auto; }
+.heatmap img { min-width: 720px; width: 100%; }
+
+/* Projects */
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+.filter {
+  background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+  padding: 9px 20px; border-radius: 999px; cursor: pointer; font: inherit; font-size: .92rem;
+}
+.filter.active, .filter:hover { color: var(--ink); background: var(--grad); border-color: transparent; }
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+.project { display: flex; flex-direction: column; }
+.project .tag {
+  width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-weight: 700;
+  font-size: .8rem; margin-bottom: 16px; background: #141922; color: var(--cyan); border: 1px solid var(--border);
+}
+.project .kind { color: var(--blue); font-size: .85rem; margin-bottom: 8px; }
+.project p { flex: 1; }
+.tech { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.tech span { font-size: .78rem; padding: 4px 12px; border-radius: 999px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
+.link { color: var(--cyan); font-weight: 600; }
+.link:hover { text-decoration: underline; }
+.hidden { display: none !important; }
+
+/* Resume / Contact */
+.resume-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+.contact-item { display: flex; align-items: center; gap: 14px; }
+.ico { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font-weight: 700;
+  background: #141922; color: var(--cyan); border: 1px solid var(--border); flex: none; }
+.contact-item small { color: var(--muted); display: block; }
+footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: .92rem; }
+footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+footer a:hover { color: var(--cyan); }
+
+/* Reveal */
+/* Content is visible by default; animation only applies when JS is running */
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s, transform .6s; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 860px) {
+  .hero-grid, .about-grid, .three, .info-card { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .btn { width: 100%; }
+  .btns { flex-direction: column; }
+  nav ul { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0;
+    background: var(--bg); border-bottom: 1px solid var(--border); padding: 8px 5%; }
+  nav ul.open { display: flex; }
+  nav li a { display: block; padding: 12px 0; }
+  .menu-btn { display: block; }
+  section { padding: 64px 0; }
+}
+
+</style>
+</head>
+<body id="home">
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home"><span class="logo">H</span> Harsh Upadhyay</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#leetcode">LeetCode</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">B.Tech CSIT · G.L. Bajaj</span>
+        <h1>Building useful software one problem at a time.</h1>
+        <p class="lead">I’m Harsh, an aspiring software development engineer focused on Java, Spring Boot, and data structures. I turn what I learn into practical projects, from backend APIs to SkillSwap, a student skill-exchange platform.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">Explore my projects ↗</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">LeetCode ↗</a>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <img src="https://avatars.githubusercontent.com/u/287495828?v=4" alt="Harsh Upadhyay">
+        <div class="badge"><small>Currently building</small>SkillSwap · Java / Spring Boot</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div><small>Primary stack</small><b>Java • Spring Boot • MySQL</b></div>
+      <div><small>Focus</small><b>DSA + Backend</b></div>
+      <div><small>Goal</small><b>Software Engineering Role</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="alt">
+  <div class="container reveal">
+    <h2 class="sec-title">About</h2>
+    <p class="sec-sub"><b>B.Tech CSIT student at G.L. Bajaj Institute of Technology and Management.</b> Building a strong foundation through hands-on projects, consistent problem solving, and curiosity about how reliable applications are made.</p>
+    <div class="about-grid">
+      <div class="card"><h3>Who I am</h3><p>I’m an aspiring software development engineer with a particular interest in Java backend development. I enjoy taking an idea from the data model and API through to an application people can use, and I’m currently exploring Generative AI alongside my core software engineering skills.</p></div>
+      <div class="card"><h3>What I value</h3><p>Steady learning, clear problem solving, and building practical software. My projects help me connect Java, Spring Boot, databases, and frontend fundamentals with real application workflows.</p></div>
+    </div>
+    <div class="card" style="margin-top:20px"><h3>What I’m working toward</h3><p>Growing into a software development engineer focused on Java and Spring Boot, with strong data structures, algorithms, and full-stack collaboration skills.</p></div>
+    <div class="three">
+      <div class="card"><h4>Build</h4><p>Turn ideas into useful, working applications.</p></div>
+      <div class="card"><h4>Practice</h4><p>Improve problem solving with regular DSA work.</p></div>
+      <div class="card"><h4>Learn</h4><p>Strengthen backend fundamentals one project at a time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container reveal">
+    <h2 class="sec-title">Skills</h2>
+    <p class="sec-sub">The tools and foundations I’m using as I grow as a developer.</p>
+    <div class="skill-grid">
+      <div class="card"><h3>Languages</h3><p class="skill-list">Java, Python, C++, HTML, CSS</p>
+        <div class="icons"><span><img src="https://skillicons.dev/icons?i=java" alt="Java"></span><span><img src="https://skillicons.dev/icons?i=python" alt="Python"></span><span><img src="https://skillicons.dev/icons?i=cpp" alt="C++"></span><span><img src="https://skillicons.dev/icons?i=html" alt="HTML"></span><span><img src="https://skillicons.dev/icons?i=css" alt="CSS"></span></div>
+        <div class="bar"><i style="width:92%"></i></div></div>
+      <div class="card"><h3>Backend &amp; APIs</h3><p class="skill-list">Spring Boot, REST APIs, Spring Data JPA, Maven</p>
+        <div class="icons"><span><img src="https://skillicons.dev/icons?i=spring" alt="Spring"></span></div>
+        <div class="bar"><i style="width:88%"></i></div></div>
+      <div class="card"><h3>Database &amp; ORM</h3><p class="skill-list">MySQL, Relational data</p>
+        <div class="icons"><span><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL"></span></div>
+        <div class="bar"><i style="width:82%"></i></div></div>
+      <div class="card"><h3>Frontend</h3><p class="skill-list">React, Responsive UI</p>
+        <div class="icons"><span><img src="https://skillicons.dev/icons?i=react" alt="React"></span></div>
+        <div class="bar"><i style="width:75%"></i></div></div>
+      <div class="card"><h3>Tools &amp; foundations</h3><p class="skill-list">Git, GitHub, OOP, Data Structures &amp; Algorithms</p>
+        <div class="icons"><span><img src="https://skillicons.dev/icons?i=git" alt="Git"></span><span><img src="https://skillicons.dev/icons?i=github" alt="GitHub"></span></div>
+        <div class="bar"><i style="width:90%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="leetcode" class="alt">
+  <div class="container reveal">
+    <h2 class="sec-title">LeetCode</h2>
+    <p class="sec-sub">Live stats with solved counts and activity heatmap.</p>
+    <div class="leet-card"><img src="https://leetcard.jacoblin.cool/harshupadhyay2026?theme=dark&ext=heatmap" alt="LeetCode stats and heatmap for harshupadhyay2026"></div>
+
+    <h2 class="sec-title" style="margin-top:64px">LeetCode Stats</h2>
+    <p class="sec-sub" id="lc-note">Loading live stats…</p>
+    <div class="stat-grid">
+      <div class="stat"><small>Total Solved</small><b id="lc-total">—</b></div>
+      <div class="stat"><small>Easy</small><b class="e" id="lc-easy">—</b></div>
+      <div class="stat"><small>Medium</small><b class="m" id="lc-medium">—</b></div>
+      <div class="stat"><small>Hard</small><b class="h" id="lc-hard">—</b></div>
+    </div>
+    <p style="margin-top:20px"><a class="link" href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">Open LeetCode profile ↗</a></p>
+
+    <h2 class="sec-title" style="margin-top:56px">GitHub Contribution</h2>
+    <p class="sec-sub">A snapshot of my public GitHub contribution activity.</p>
+    <div class="card heatmap"><img src="https://ghchart.rshah.org/5eead4/Harshupadhyay2026" alt="GitHub contribution chart"></div>
+    <p style="margin-top:16px;color:var(--muted)">Public contributions over the last 12 months. <a class="link" href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">View my GitHub profile ↗</a></p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container reveal">
+    <h2 class="sec-title">Projects</h2>
+    <p class="sec-sub">Selected work across full-stack development, backend APIs, Java, Python, C++, and coding practice. Explore each repository for the source.</p>
+    <div class="filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="java">Java</button>
+      <button class="filter" data-filter="spring">Spring Boot</button>
+      <button class="filter" data-filter="python">Python</button>
+      <button class="filter" data-filter="cpp">C++</button>
+    </div>
+    <div class="proj-grid">
+      <article class="card project" data-tags="java spring">
+        <div class="tag">SS</div><h3>SkillSwap</h3><div class="kind">Full-stack learning platform</div>
+        <p>Peer-to-peer skill exchange for students, with skill swaps, shared learning sessions, video rooms, messaging, Q&amp;A, reviews, and notifications.</p>
+        <div class="tech"><span>Java 21</span><span>Spring Boot</span><span>React</span><span>MySQL</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/skillswap" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="java spring">
+        <div class="tag">API</div><h3>Student CRUD Application</h3><div class="kind">REST API</div>
+        <p>Student record management using REST endpoints and a relational database, structured with controller, service, entity, and repository layers.</p>
+        <div class="tech"><span>Java</span><span>Spring Boot</span><span>Spring Data JPA</span><span>MySQL</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/springboot_crud_dev" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="java spring">
+        <div class="tag">CRUD</div><h3>Spring Boot CRUD App</h3><div class="kind">Java practice project</div>
+        <p>A separate Spring Boot CRUD application repository documenting continued practice with backend application development.</p>
+        <div class="tech"><span>Java</span><span>Spring Boot</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/springboot_crud_app" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="java">
+        <div class="tag">BM</div><h3>Bank Management System</h3><div class="kind">Java · OOP</div>
+        <p>A Java project practicing core OOP concepts through deposits, debits, transfers, balance checks, and interest calculations.</p>
+        <div class="tech"><span>Java</span><span>OOP</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="python">
+        <div class="tag">BAT</div><h3>Battery Notifier</h3><div class="kind">Python · Termux</div>
+        <p>A battery monitoring utility that sends Termux notifications for low battery and a full charge.</p>
+        <div class="tech"><span>Python</span><span>Termux</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/Battery_notifications_project" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="cpp">
+        <div class="tag">C++</div><h3>C++ Console Applications</h3><div class="kind">Programming fundamentals</div>
+        <p>Console exercises including library, bank, and student management programs, plus a Tic-Tac-Toe implementation.</p>
+        <div class="tech"><span>C++</span><span>Console applications</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/Internship_portal" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="java">
+        <div class="tag">DSA</div><h3>LeetCode Solutions</h3><div class="kind">Java · DSA</div>
+        <p>A growing collection of coding challenge solutions organized by LeetCode topic.</p>
+        <div class="tech"><span>Java</span><span>Algorithms</span><span>Data structures</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/HEY-leet" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="java spring">
+        <div class="tag">CORE</div><h3>Spring Boot Fundamentals</h3><div class="kind">Learning repository</div>
+        <p>Notes and examples from studying Spring Boot fundamentals.</p>
+        <div class="tech"><span>Java</span><span>Spring Boot</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/SPRINGBOOT-CORE" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+      <article class="card project" data-tags="cpp">
+        <div class="tag">C++</div><h3>C++ Summer Assignment</h3><div class="kind">Coursework</div>
+        <p>A collection of C++ coursework organized by assignment day.</p>
+        <div class="tech"><span>C++</span><span>Coursework</span></div>
+        <a class="link" href="https://github.com/Harshupadhyay2026/Summer_Assignment_25116CN340" target="_blank" rel="noopener">Repository ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="resume" class="alt">
+  <div class="container reveal">
+    <h2 class="sec-title">Resume</h2>
+    <p class="sec-sub">A concise snapshot of my education, skills, projects, and problem-solving practice.</p>
+    <div class="card resume-card">
+      <div><h3>Harsh Upadhyay — Resume</h3><p>Education · Java backend skills · Selected projects</p></div>
+      <div class="btns" style="margin:0">
+        <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">View PDF ↗</a>
+        <a class="btn" href="resume.html" target="_blank" rel="noopener">Print / Save</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container reveal">
+    <h2 class="sec-title">Contact</h2>
+    <p class="sec-sub">Open to connecting about software engineering, Java backend development, and collaborative projects.</p>
+    <div class="contact-grid">
+      <a class="card contact-item" href="mailto:upadhyayharsh569@gmail.com"><span class="ico">@</span><div><b>Email</b><small>upadhyayharsh569@gmail.com</small></div></a>
+      <a class="card contact-item" href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener"><span class="ico">in</span><div><b>LinkedIn</b><small>Connect with me</small></div></a>
+      <a class="card contact-item" href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener"><span class="ico">LC</span><div><b>LeetCode</b><small>harshupadhyay2026</small></div></a>
+      <a class="card contact-item" href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener"><span class="ico">GH</span><div><b>GitHub</b><small>Explore my repositories</small></div></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Harsh Upadhyay</span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+// Enable reveal animation only when JS runs
+document.documentElement.classList.add("js");
+
+// Mobile menu
+const list = document.querySelector("nav ul");
+document.querySelector(".menu-btn").addEventListener("click", () => list.classList.toggle("open"));
+list.querySelectorAll("a").forEach(a => a.addEventListener("click", () => list.classList.remove("open")));
+
+// Project filters
+const filters = document.querySelectorAll(".filter");
+const projects = document.querySelectorAll(".project");
+filters.forEach(btn => btn.addEventListener("click", () => {
+  filters.forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  const f = btn.dataset.filter;
+  projects.forEach(p => p.classList.toggle("hidden", f !== "all" && !p.dataset.tags.includes(f)));
+}));
+
+// Scroll reveal, with a safety net so content is never left hidden
+const revealAll = () => document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  }), { threshold: .05 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  setTimeout(revealAll, 2500);
+} else {
+  revealAll();
+}
+
+// LeetCode stats: try live data, otherwise show a clear fallback instead of dashes
+const user = "harshupadhyay2026";
+const note = document.getElementById("lc-note");
+const set = (id, v) => { document.getElementById(id).textContent = v; };
+function showFallback() {
+  document.querySelector(".stat-grid").classList.add("hidden");
+  note.innerHTML = 'Live numbers are loading from LeetCode. <a class="link" href="https://leetcode.com/u/' + user + '/" target="_blank" rel="noopener">Open my LeetCode profile ↗</a>';
+}
+fetch("https://leetcode-stats-api.herokuapp.com/" + user)
+  .then(r => r.json())
+  .then(d => {
+    if (d.status !== "success") throw new Error("no data");
+    set("lc-total", d.totalSolved); set("lc-easy", d.easySolved);
+    set("lc-medium", d.mediumSolved); set("lc-hard", d.hardSolved);
+    note.textContent = "Live stats from my LeetCode profile.";
+  })
+  .catch(showFallback);
+
+</script>
+</body>
+</html>
