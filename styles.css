@@ -352,7 +352,7 @@
       body.motion-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
       .menu-toggle { color: var(--ink); }
 
-      @media (max-width: 850px) {
+      @media (max-width: 1023px) {
         .hero-float { right: -8px; }
       }
       @media (max-width: 760px) {
