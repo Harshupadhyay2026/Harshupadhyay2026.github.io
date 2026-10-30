@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8fc">
+    <meta name="description" content="Harsh Upadhyay — B.Tech CSIT student and aspiring software developer focused on Java, Spring Boot, and building useful software.">
+    <title>Harsh Upadhyay | Software Developer</title>
+    <link rel="preconnect" href="https://avatars.githubusercontent.com">
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17213a;
+        --muted: #64708a;
+        --soft: #8892a7;
+        --paper: #ffffff;
+        --canvas: #f7f8fc;
+        --line: #e8ebf3;
+        --blue: #5368e8;
+        --blue-dark: #3e50c8;
+        --mint: #e8f7f1;
+        --shadow: 0 18px 60px rgba(30, 43, 82, 0.08);
+        --radius: 24px;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(ellipse at 86% 4%, rgba(218, 227, 255, 0.58), transparent 28rem),
+          var(--canvas);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; }
+      a:focus-visible, button:focus-visible { outline: 3px solid #9aa8ff; outline-offset: 4px; }
+      img { max-width: 100%; }
+
+      .shell { width: min(1120px, calc(100% - 44px)); margin-inline: auto; }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        border-bottom: 1px solid rgba(232, 235, 243, 0.82);
+        background: rgba(247, 248, 252, 0.88);
+        backdrop-filter: blur(16px);
+      }
+
+      .nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 760;
+        letter-spacing: -0.035em;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 13px;
+        color: white;
+        background: var(--blue);
+        box-shadow: 0 8px 18px rgba(83, 104, 232, 0.24);
+      }
+
+      .nav-links { display: flex; align-items: center; gap: 29px; }
+      .nav-links a { color: var(--muted); font-size: 0.91rem; text-decoration: none; transition: color 160ms ease; }
+      .nav-links a:hover { color: var(--blue-dark); }
+      .nav-links .nav-contact { color: var(--blue-dark); font-weight: 700; }
+
+      .hero {
+        min-height: 590px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        align-items: center;
+        gap: 52px;
+        padding-block: 74px 84px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 20px;
+        color: var(--blue-dark);
+        font-size: 0.82rem;
+        font-weight: 750;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #38a87b;
+        box-shadow: 0 0 0 4px #dff3ea;
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+
+      h1 {
+        max-width: 720px;
+        margin-bottom: 20px;
+        font-size: clamp(2.9rem, 6vw, 5rem);
+        font-weight: 790;
+        letter-spacing: -0.075em;
+        line-height: 1.03;
+      }
+
+      h1 span { color: var(--blue); }
+
+      .hero-copy {
+        max-width: 625px;
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: clamp(1.02rem, 2vw, 1.16rem);
+      }
+
+      .hero-copy strong { color: var(--ink); font-weight: 650; }
+
+      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+
+      .button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 0 19px;
+        border: 1px solid transparent;
+        border-radius: 14px;
+        color: white;
+        background: var(--blue);
+        box-shadow: 0 9px 22px rgba(83, 104, 232, 0.2);
+        font-size: 0.94rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      }
+
+      .button:hover { transform: translateY(-2px); background: var(--blue-dark); box-shadow: 0 12px 26px rgba(83, 104, 232, 0.25); }
+      .button.secondary { color: var(--ink); background: white; border-color: var(--line); box-shadow: none; }
+      .button.secondary:hover { color: var(--blue-dark); border-color: #cbd2ff; background: #fbfbff; }
+      .button.text-button { min-height: 42px; padding-inline: 5px; color: var(--muted); background: transparent; box-shadow: none; }
+      .button.text-button:hover { color: var(--blue-dark); transform: none; }
+
+      .portrait-wrap { position: relative; justify-self: center; width: min(350px, 100%); }
+
+      .portrait-card {
+        position: relative;
+        padding: 17px;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 34px;
+        background: rgba(255, 255, 255, 0.68);
+        box-shadow: var(--shadow);
+        transform: rotate(2deg);
+      }
+
+      .portrait {
+        display: block;
+        width: 100%;
+        aspect-ratio: 0.94;
+        border-radius: 24px;
+        background: linear-gradient(145deg, #dce5ff, #eaf5f1);
+        object-fit: cover;
+      }
+
+      .portrait-note {
+        position: absolute;
+        right: -24px;
+        bottom: 31px;
+        max-width: 190px;
+        padding: 13px 16px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 12px 30px rgba(30, 43, 82, 0.12);
+        font-size: 0.82rem;
+        line-height: 1.45;
+        transform: rotate(-2deg);
+      }
+
+      .portrait-note strong { display: block; color: var(--ink); font-size: 0.93rem; }
+      .portrait-note span { color: var(--muted); }
+
+      .section { padding-block: 72px; scroll-margin-top: 90px; }
+      .section-heading { max-width: 680px; margin-bottom: 29px; }
+      .section-kicker { margin-bottom: 9px; color: var(--blue-dark); font-size: 0.78rem; font-weight: 760; letter-spacing: 0.12em; text-transform: uppercase; }
+      .section-heading h2 { margin-bottom: 9px; font-size: clamp(1.9rem, 4vw, 2.7rem); letter-spacing: -0.055em; line-height: 1.17; }
+      .section-heading p { margin-bottom: 0; color: var(--muted); }
+
+      .about-grid { display: grid; grid-template-columns: 1fr 0.9fr; gap: 22px; }
+      .panel { padding: clamp(24px, 4vw, 36px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 8px 30px rgba(30, 43, 82, 0.035); }
+      .panel h3 { margin-bottom: 11px; font-size: 1.15rem; letter-spacing: -0.025em; }
+      .panel p { margin-bottom: 0; color: var(--muted); }
+      .focus-list { display: grid; gap: 16px; }
+      .focus-item { display: grid; grid-template-columns: 39px 1fr; gap: 13px; align-items: start; }
+      .focus-icon { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 13px; color: var(--blue-dark); background: #eef0ff; font-weight: 750; }
+      .focus-item strong { display: block; margin-bottom: 2px; font-size: 0.96rem; }
+      .focus-item span { display: block; color: var(--muted); font-size: 0.9rem; }
+
+      .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+      .skill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 13px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #39445f;
+        background: white;
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .skill::before { width: 7px; height: 7px; border-radius: 50%; background: #91a0ef; content: ""; }
+
+      .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .project-card {
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+        border: 1px solid var(--line);
+        border-radius: 21px;
+        background: white;
+        box-shadow: 0 8px 28px rgba(30, 43, 82, 0.035);
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .project-card:hover { transform: translateY(-4px); border-color: #d7dcff; box-shadow: 0 18px 38px rgba(30, 43, 82, 0.085); }
+      .project-card.featured { border-color: #d9defe; background: linear-gradient(145deg, #fff 50%, #f5f6ff); }
+      .project-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 15px; }
+      .project-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; color: var(--blue-dark); background: #eef0ff; font-size: 0.88rem; font-weight: 800; }
+      .project-label { color: var(--soft); font-size: 0.75rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
+      .project-card h3 { margin-bottom: 8px; font-size: 1.14rem; letter-spacing: -0.03em; }
+      .project-card p { margin-bottom: 18px; color: var(--muted); font-size: 0.93rem; }
+      .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; margin-bottom: 17px; }
+      .tag { padding: 4px 9px; border-radius: 999px; color: #59647e; background: #f1f3f8; font-size: 0.74rem; font-weight: 650; }
+      .project-link { display: inline-flex; align-items: center; gap: 7px; width: fit-content; color: var(--blue-dark); font-size: 0.88rem; font-weight: 730; text-decoration: none; }
+      .project-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+      .practice-card {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 24px;
+        padding: clamp(26px, 4vw, 39px);
+        border: 1px solid #dfe5ff;
+        border-radius: var(--radius);
+        background: linear-gradient(115deg, #eef1ff, #f8f9ff 72%);
+      }
+
+      .practice-card h3 { margin-bottom: 7px; font-size: 1.3rem; letter-spacing: -0.035em; }
+      .practice-card p { max-width: 660px; margin-bottom: 0; color: var(--muted); }
+      .practice-badge { width: 62px; height: 62px; display: grid; place-items: center; border-radius: 20px; color: var(--blue-dark); background: white; font-size: 1.6rem; box-shadow: 0 8px 22px rgba(83, 104, 232, 0.1); }
+
+      .contact-card {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 28px;
+        padding: clamp(28px, 5vw, 48px);
+        border-radius: 28px;
+        color: white;
+        background: #202b49;
+        box-shadow: 0 22px 54px rgba(32, 43, 73, 0.18);
+      }
+
+      .contact-card .section-kicker { color: #aeb9ff; }
+      .contact-card h2 { margin-bottom: 9px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.05em; }
+      .contact-card p { max-width: 560px; margin-bottom: 0; color: #c2cbe0; }
+      .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .contact-actions .button { color: #202b49; background: white; box-shadow: none; }
+      .contact-actions .button:hover { color: var(--blue-dark); background: #eff1ff; }
+      .contact-actions .social-link { color: #e1e6f4; font-size: 0.88rem; text-decoration: none; }
+      .contact-actions .social-link:hover { color: white; text-decoration: underline; }
+
+      footer { padding-block: 30px; color: var(--soft); font-size: 0.84rem; }
+      .footer-row { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+      footer a { color: var(--muted); text-decoration: none; }
+      footer a:hover { color: var(--blue-dark); }
+
+      @media (max-width: 780px) {
+        .hero { min-height: auto; grid-template-columns: 1fr; gap: 38px; padding-block: 62px 68px; }
+        .hero-content { order: 1; }
+        .portrait-wrap { order: 0; width: min(250px, 78%); }
+        .portrait-card { padding: 12px; border-radius: 27px; }
+        .portrait { border-radius: 19px; }
+        .portrait-note { right: -25px; bottom: 21px; }
+        .about-grid { grid-template-columns: 1fr; }
+        .section { padding-block: 55px; }
+      }
+
+      @media (max-width: 560px) {
+        .shell { width: min(100% - 30px, 1120px); }
+        .nav { min-height: 67px; gap: 12px; }
+        .brand { font-size: 0.92rem; }
+        .brand-mark { width: 34px; height: 34px; }
+        .nav-links { gap: 14px; }
+        .nav-links a { font-size: 0.8rem; }
+        .nav-links a:nth-child(2) { display: none; }
+        .hero { padding-block: 46px 55px; }
+        h1 { font-size: clamp(2.75rem, 13vw, 4rem); }
+        .project-grid { grid-template-columns: 1fr; }
+        .project-card { min-height: 230px; }
+        .practice-card, .contact-card { grid-template-columns: 1fr; }
+        .practice-badge { display: none; }
+        .contact-actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 14px; }
+        .footer-row { flex-direction: column; gap: 5px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Harsh Upadhyay home">
+          <span class="brand-mark" aria-hidden="true">H</span>
+          <span>Harsh Upadhyay</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a class="nav-contact" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero shell" id="home">
+        <div class="hero-content">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Aspiring Software Development Engineer</p>
+          <h1>Hi, I'm Harsh.<br><span>I build for the web.</span></h1>
+          <p class="hero-copy">
+            A <strong>B.Tech CSIT student at G.L. Bajaj Institute of Technology and Management</strong>,
+            focused on Java, Spring Boot, and thoughtful software. I enjoy turning what I learn into
+            practical projects and steadily sharpening my engineering fundamentals.
+          </p>
+          <div class="actions">
+            <a class="button" href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener">View resume <span aria-hidden="true">↗</span></a>
+            <a class="button text-button" href="mailto:upadhyayharsh569@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="portrait-wrap">
+          <div class="portrait-card">
+            <img class="portrait" src="https://avatars.githubusercontent.com/u/287495828?v=4" alt="Harsh Upadhyay's profile portrait">
+          </div>
+          <div class="portrait-note">
+            <strong>Curious by nature.</strong>
+            <span>Building skills through real projects.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="about">
+        <div class="section-heading">
+          <p class="section-kicker">A little about me</p>
+          <h2>Learning by building, growing with every project.</h2>
+          <p>My focus is backend development with Java and Spring Boot, alongside the skills to build useful, complete web experiences.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>My approach</h3>
+            <p>
+              I like understanding how things work, then applying that knowledge to software people can use.
+              From REST APIs and database-backed applications to frontend fundamentals and data-structure
+              practice, I’m working toward becoming a well-rounded software development engineer.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>What I'm focused on</h3>
+            <div class="focus-list">
+              <div class="focus-item">
+                <span class="focus-icon" aria-hidden="true">01</span>
+                <div><strong>Java backend development</strong><span>Spring Boot, REST APIs, and relational data</span></div>
+              </div>
+              <div class="focus-item">
+                <span class="focus-icon" aria-hidden="true">02</span>
+                <div><strong>Data structures & algorithms</strong><span>Consistent problem solving with Java</span></div>
+              </div>
+              <div class="focus-item">
+                <span class="focus-icon" aria-hidden="true">03</span>
+                <div><strong>Building practical software</strong><span>Taking ideas from a first commit to a usable project</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell" id="skills">
+        <div class="section-heading">
+          <p class="section-kicker">Tools I work with</p>
+          <h2>My current toolkit</h2>
+        </div>
+        <div class="skills" aria-label="Technical skills">
+          <span class="skill">Java</span>
+          <span class="skill">Spring Boot</span>
+          <span class="skill">REST APIs</span>
+          <span class="skill">Spring Data JPA</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">React</span>
+          <span class="skill">Python</span>
+          <span class="skill">C++</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">Git & GitHub</span>
+          <span class="skill">Data Structures & Algorithms</span>
+        </div>
+      </section>
+
+      <section class="section shell" id="projects">
+        <div class="section-heading">
+          <p class="section-kicker">Selected work</p>
+          <h2>Projects I've been learning from.</h2>
+          <p>A few projects from my journey so far. Each repository links to the source on GitHub.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-top"><span class="project-mark" aria-hidden="true">SS</span><span class="project-label">Featured · Full stack</span></div>
+            <h3>SkillSwap</h3>
+            <p>A peer-to-peer platform where students can exchange skills, arrange learning sessions, message, share Q&A, and review completed sessions.</p>
+            <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">MySQL</span></div>
+            <a class="project-link" href="https://github.com/Harshupadhyay2026/skillswap" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top"><span class="project-mark" aria-hidden="true">API</span><span class="project-label">Backend</span></div>
+            <h3>Student CRUD REST API</h3>
+            <p>A database-backed student management application for creating, reading, updating, and deleting student records through REST endpoints.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring Data JPA</span><span class="tag">MySQL</span></div>
+            <a class="project-link" href="https://github.com/Harshupadhyay2026/springboot_crud_dev" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top"><span class="project-mark" aria-hidden="true">BM</span><span class="project-label">Java · OOP</span></div>
+            <h3>Bank Management System</h3>
+            <p>A Java project for practicing object-oriented programming through balance checks, deposits, debits, transfers, and interest calculations.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">OOP</span></div>
+            <a class="project-link" href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top"><span class="project-mark" aria-hidden="true">BAT</span><span class="project-label">Python · Utility</span></div>
+            <h3>Battery Notifier</h3>
+            <p>A Termux utility that sends notifications when a device battery is low or reaches a full charge.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Termux</span></div>
+            <a class="project-link" href="https://github.com/Harshupadhyay2026/Battery_notifications_project" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top"><span class="project-mark" aria-hidden="true">C++</span><span class="project-label">C++ · Practice</span></div>
+            <h3>Console Programming Projects</h3>
+            <p>A collection of console programs including library, bank, and student management exercises, plus a Tic-Tac-Toe project.</p>
+            <div class="tags"><span class="tag">C++</span><span class="tag">Programming fundamentals</span></div>
+            <a class="project-link" href="https://github.com/Harshupadhyay2026/Internship_portal" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell" id="leetcode">
+        <div class="section-heading">
+          <p class="section-kicker">Problem solving</p>
+          <h2>Learning one problem at a time.</h2>
+        </div>
+        <div class="practice-card">
+          <div>
+            <h3>LeetCode · @harshupadhyay2026</h3>
+            <p>I use coding challenges to strengthen my data structures, algorithms, and Java problem-solving skills. Explore my profile and solutions.</p>
+          </div>
+          <span class="practice-badge" aria-hidden="true">{ }</span>
+          <a class="button secondary" href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">Visit LeetCode <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section shell" id="resume">
+        <div class="section-heading">
+          <p class="section-kicker">Experience at a glance</p>
+          <h2>A concise snapshot of my background.</h2>
+          <p>My resume covers my education, technical toolkit, and selected projects. It’s based on the details currently available on my profile.</p>
+        </div>
+        <div class="panel">
+          <h3>Harsh Upadhyay · Aspiring Software Development Engineer</h3>
+          <p>B.Tech CSIT student at G.L. Bajaj Institute of Technology and Management, focused on Java backend development with Spring Boot and practical software projects.</p>
+          <div class="actions" style="margin-top: 20px">
+            <a class="button" href="resume.pdf" target="_blank" rel="noopener">Open resume PDF <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="resume.html">View accessible resume page <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="contact">
+        <div class="contact-card">
+          <div>
+            <p class="section-kicker">Contact & connect</p>
+            <h2>Have a project or opportunity in mind?</h2>
+            <p>I’m an aspiring SDE focused on Java backend development and Spring Boot. Reach out if you’d like to connect, discuss a project, or share an opportunity.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button" href="mailto:upadhyayharsh569@gmail.com">upadhyayharsh569@gmail.com <span aria-hidden="true">↗</span></a>
+            <a class="social-link" href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="social-link" href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="footer-row">
+        <span>© Harsh Upadhyay · Built with care.</span>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Resume of Harsh Upadhyay, B.Tech CSIT student and aspiring software developer.">
+    <title>Resume | Harsh Upadhyay</title>
+    <style>
+      :root { color-scheme: light; --ink: #17213a; --muted: #59647a; --accent: #485edb; --line: #dfe4ed; }
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 30px 18px; color: var(--ink); background: #f4f6fb; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+      .toolbar { width: min(820px, 100%); display: flex; justify-content: space-between; align-items: center; gap: 14px; margin: 0 auto 15px; }
+      .toolbar a, .toolbar button { border: 1px solid var(--line); border-radius: 8px; padding: 9px 13px; color: var(--ink); background: white; font: inherit; text-decoration: none; cursor: pointer; }
+      .toolbar button { color: white; border-color: var(--accent); background: var(--accent); font-weight: 700; }
+      .sheet { width: min(820px, 100%); min-height: 1056px; margin: 0 auto; padding: 52px 60px; background: white; box-shadow: 0 14px 44px rgba(30, 43, 82, .1); }
+      h1 { margin: 0; font-size: 32px; letter-spacing: -.045em; }
+      .headline { margin: 4px 0 13px; color: var(--accent); font-size: 15px; font-weight: 700; }
+      .contact { display: flex; flex-wrap: wrap; gap: 5px 15px; margin-bottom: 22px; color: var(--muted); font-size: 12px; }
+      a { color: var(--accent); text-decoration: none; }
+      .summary { margin: 0; color: #39445c; font-size: 13px; }
+      section { margin-top: 21px; }
+      h2 { margin: 0 0 9px; padding-bottom: 5px; border-bottom: 1px solid var(--line); color: var(--accent); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+      h3 { margin: 0; font-size: 13px; }
+      p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+      .entry { margin-top: 11px; }
+      .entry-top { display: flex; justify-content: space-between; gap: 16px; }
+      .subtle { color: var(--muted); font-size: 11px; }
+      ul { margin: 6px 0 0; padding-left: 17px; color: #39445c; font-size: 11.5px; }
+      li { margin: 3px 0; }
+      .skills { display: grid; grid-template-columns: 120px 1fr; gap: 6px 13px; font-size: 12px; }
+      .skills strong { color: #34405a; }
+      @media (max-width: 600px) {
+        body { padding: 15px 9px; }
+        .sheet { min-height: 0; padding: 32px 24px; }
+        .entry-top { display: block; }
+      }
+      @media print {
+        @page { size: A4; margin: 15mm; }
+        body { padding: 0; background: white; }
+        .toolbar { display: none; }
+        .sheet { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+        a { color: inherit; }
+        section, .entry { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar" aria-label="Resume actions">
+      <a href="./">← Back to portfolio</a>
+      <button type="button" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+    <main class="sheet">
+      <header>
+        <h1>Harsh Upadhyay</h1>
+        <p class="headline">Aspiring Software Development Engineer · Java Backend / Spring Boot</p>
+        <div class="contact">
+          <a href="mailto:upadhyayharsh569@gmail.com">upadhyayharsh569@gmail.com</a>
+          <a href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/">LinkedIn</a>
+          <a href="https://github.com/Harshupadhyay2026">GitHub</a>
+          <a href="https://leetcode.com/u/harshupadhyay2026/">LeetCode</a>
+        </div>
+        <p class="summary">
+          B.Tech CSIT student focused on Java backend development with Spring Boot. Building practical
+          software projects while strengthening REST API, database, object-oriented programming, and
+          data-structure fundamentals.
+        </p>
+      </header>
+
+      <section>
+        <h2>Education</h2>
+        <div class="entry">
+          <div class="entry-top">
+            <h3>B.Tech, Computer Science and Information Technology</h3>
+          </div>
+          <p>G.L. Bajaj Institute of Technology and Management</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skills">
+          <strong>Languages</strong><span>Java, Python, C++, HTML, CSS</span>
+          <strong>Backend</strong><span>Spring Boot, REST APIs, Spring Data JPA</span>
+          <strong>Database</strong><span>MySQL</span>
+          <strong>Frontend</strong><span>React</span>
+          <strong>Foundations</strong><span>Object-oriented programming, CRUD, data structures and algorithms</span>
+          <strong>Tools</strong><span>Git, GitHub, Maven</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Selected Projects</h2>
+        <div class="entry">
+          <div class="entry-top"><h3>SkillSwap</h3><span class="subtle">Java 21 · Spring Boot · React · MySQL</span></div>
+          <ul>
+            <li>Built a peer-to-peer skill exchange platform for students to discover peers, propose swaps, and arrange shared learning sessions.</li>
+            <li>Includes messaging, Q&A, session reviews, notifications, and video-room support.</li>
+            <li>Repository: <a href="https://github.com/Harshupadhyay2026/skillswap">github.com/Harshupadhyay2026/skillswap</a></li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-top"><h3>Student CRUD REST API</h3><span class="subtle">Java · Spring Boot · Spring Data JPA · MySQL</span></div>
+          <ul>
+            <li>Created REST operations for adding, retrieving, updating, and deleting student records with a relational database.</li>
+            <li>Repository: <a href="https://github.com/Harshupadhyay2026/springboot_crud_dev">github.com/Harshupadhyay2026/springboot_crud_dev</a></li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-top"><h3>Bank Management System</h3><span class="subtle">Java · OOP</span></div>
+          <ul>
+            <li>Practiced object-oriented programming with deposit, debit, transfer, balance, and interest features.</li>
+            <li>Repository: <a href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS">github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS</a></li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-top"><h3>Battery Notifier</h3><span class="subtle">Python · Termux</span></div>
+          <ul>
+            <li>Created a battery-monitoring utility that sends low-charge and full-charge notifications.</li>
+            <li>Repository: <a href="https://github.com/Harshupadhyay2026/Battery_notifications_project">github.com/Harshupadhyay2026/Battery_notifications_project</a></li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-top"><h3>Console Programming Projects</h3><span class="subtle">C++</span></div>
+          <ul>
+            <li>Worked on console exercises including library, bank, and student management programs and Tic-Tac-Toe.</li>
+            <li>Repository: <a href="https://github.com/Harshupadhyay2026/Internship_portal">github.com/Harshupadhyay2026/Internship_portal</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Problem Solving</h2>
+        <div class="entry">
+          <h3>LeetCode</h3>
+          <p>Practicing data structures and algorithms with Java. Profile: <a href="https://leetcode.com/u/harshupadhyay2026/">leetcode.com/u/harshupadhyay2026</a></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
