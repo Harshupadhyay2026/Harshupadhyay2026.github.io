@@ -3,334 +3,258 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f8fc">
-    <meta name="description" content="Harsh Upadhyay — B.Tech CSIT student and aspiring software developer focused on Java, Spring Boot, and building useful software.">
+    <meta name="theme-color" content="#f8f9fb">
+    <meta name="description" content="Harsh Upadhyay — B.Tech CSIT student and aspiring software development engineer focused on Java, Spring Boot, and data structures.">
     <title>Harsh Upadhyay | Software Developer</title>
     <link rel="preconnect" href="https://avatars.githubusercontent.com">
+    <link rel="preconnect" href="https://leetcode-api-faisalshohag.vercel.app">
     <style>
       :root {
         color-scheme: light;
-        --ink: #17213a;
-        --muted: #64708a;
-        --soft: #8892a7;
-        --paper: #ffffff;
-        --canvas: #f7f8fc;
-        --line: #e8ebf3;
+        --ink: #20232a;
+        --muted: #656b76;
+        --soft: #858b96;
+        --paper: #fff;
+        --canvas: #f8f9fb;
+        --line: #e6e8ec;
         --blue: #5368e8;
         --blue-dark: #3e50c8;
-        --mint: #e8f7f1;
-        --shadow: 0 18px 60px rgba(30, 43, 82, 0.08);
-        --radius: 24px;
+        --green: #238a57;
+        --green-soft: #e9f7ef;
+        --red: #bd4d4d;
+        --shadow: 0 10px 32px rgba(27, 38, 67, 0.055);
       }
 
       * { box-sizing: border-box; }
-
       html { scroll-behavior: smooth; }
-
       body {
         margin: 0;
         color: var(--ink);
-        background:
-          radial-gradient(ellipse at 86% 4%, rgba(218, 227, 255, 0.58), transparent 28rem),
-          var(--canvas);
+        background: var(--canvas);
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 15px;
         line-height: 1.65;
         -webkit-font-smoothing: antialiased;
       }
-
-      a { color: inherit; }
-      a:focus-visible, button:focus-visible { outline: 3px solid #9aa8ff; outline-offset: 4px; }
+      a { color: var(--blue-dark); text-decoration: none; }
+      a:hover { text-decoration: underline; text-underline-offset: 3px; }
+      a:focus-visible, button:focus-visible { outline: 3px solid #aeb8ff; outline-offset: 3px; }
       img { max-width: 100%; }
-
-      .shell { width: min(1120px, calc(100% - 44px)); margin-inline: auto; }
+      .shell { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
 
       .topbar {
         position: sticky;
         top: 0;
         z-index: 5;
-        border-bottom: 1px solid rgba(232, 235, 243, 0.82);
-        background: rgba(247, 248, 252, 0.88);
-        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(14px);
       }
+      .topbar-inner { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 720; letter-spacing: -0.02em; }
+      .brand:hover { text-decoration: none; }
+      .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: #fff; background: var(--blue); font-size: 0.9rem; }
+      .top-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 0.9rem; }
+      .top-links a { color: inherit; }
+      .top-links .top-cta { color: var(--blue-dark); font-weight: 700; }
 
-      .nav {
-        min-height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-      }
+      .layout { display: grid; grid-template-columns: 252px minmax(0, 1fr); gap: 42px; align-items: start; padding-block: 34px 68px; }
+      .sidebar { position: sticky; top: 96px; min-width: 0; }
+      .profile-card { padding: 21px 19px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+      .avatar-wrap { position: relative; width: 164px; max-width: 100%; margin: 0 auto 17px; }
+      .avatar { display: block; width: 100%; aspect-ratio: 1; border: 1px solid var(--line); border-radius: 50%; background: #e8ecfa; object-fit: cover; }
+      .avatar-status { position: absolute; right: 5px; bottom: 8px; width: 21px; height: 21px; border: 4px solid white; border-radius: 50%; background: #45a875; }
+      .profile-name { margin: 0; font-size: 1.34rem; font-weight: 700; letter-spacing: -0.035em; line-height: 1.25; }
+      .profile-handle { margin: 3px 0 13px; color: var(--soft); }
+      .profile-bio { margin: 0; color: #434954; font-size: 0.9rem; line-height: 1.65; }
+      .side-links { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; }
+      .side-links li { min-width: 0; display: flex; align-items: flex-start; gap: 10px; color: var(--muted); font-size: 0.84rem; line-height: 1.45; }
+      .side-links .side-icon { width: 17px; flex: 0 0 17px; text-align: center; }
+      .side-links a { overflow-wrap: anywhere; }
+      .side-rule { height: 1px; margin: 19px 0 15px; border: 0; background: var(--line); }
+      .side-label { margin: 0 0 10px; color: var(--soft); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      .focus-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+      .focus-badge { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: #535b68; background: #fbfbfc; font-size: 0.73rem; font-weight: 620; }
 
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 11px;
-        color: var(--ink);
-        text-decoration: none;
-        font-weight: 760;
-        letter-spacing: -0.035em;
-      }
+      .main { min-width: 0; }
+      .tabs { display: flex; gap: 24px; overflow-x: auto; border-bottom: 1px solid var(--line); margin-bottom: 0; }
+      .tabs a { flex: 0 0 auto; padding: 10px 1px 12px; color: var(--muted); font-size: 0.88rem; font-weight: 550; }
+      .tabs a:first-child { border-bottom: 2px solid #e66c58; color: var(--ink); font-weight: 700; }
+      .content-section { padding: 28px 0 31px; border-bottom: 1px solid var(--line); scroll-margin-top: 84px; }
+      .content-section:last-child { border-bottom: 0; }
+      .section-title { margin: 0 0 7px; font-size: 1.28rem; font-weight: 720; letter-spacing: -0.035em; line-height: 1.3; }
+      .section-intro { margin: 0 0 17px; color: var(--muted); font-size: 0.91rem; }
+      .about-lead { margin: 0 0 16px; color: #404651; font-size: 0.96rem; }
+      .subheading { margin: 20px 0 6px; font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
+      .body-copy { margin: 0; color: var(--muted); font-size: 0.9rem; }
+      .value-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+      .value-card { padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+      .value-card strong { display: block; margin-bottom: 3px; font-size: 0.84rem; }
+      .value-card span { display: block; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
 
-      .brand-mark {
-        width: 38px;
-        height: 38px;
+      .skill-groups { display: grid; gap: 17px; }
+      .skill-group { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 15px; align-items: start; }
+      .skill-group-name { padding-top: 5px; color: #555d69; font-size: 0.84rem; font-weight: 680; }
+      .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+      .skill-chip { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: #444b57; font-size: 0.8rem; }
+      .skill-chip img { width: 16px; height: 16px; object-fit: contain; }
+
+      .leetcode-panel { padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+      .leetcode-top { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 17px; }
+      .leetcode-user { display: flex; align-items: center; gap: 10px; }
+      .lc-mark { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 11px; color: #b77800; background: #fff5df; font-size: 1.05rem; font-weight: 800; }
+      .leetcode-user strong { display: block; font-size: 0.94rem; }
+      .leetcode-user span { display: block; color: var(--muted); font-size: 0.79rem; }
+      .live-status { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 0.76rem; white-space: nowrap; }
+      .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #45a875; }
+      .live-dot.loading { background: #e5a839; }
+      .live-dot.error { background: #d15858; }
+      .lc-summary { display: grid; grid-template-columns: 1.05fr 2fr; gap: 14px; align-items: stretch; }
+      .lc-total { display: grid; place-content: center; min-height: 156px; padding: 16px; border: 1px solid #eee5d5; border-radius: 10px; background: #fffcf6; text-align: center; }
+      .lc-total-value { display: block; color: #9c6900; font-size: 2.45rem; font-weight: 760; letter-spacing: -0.06em; line-height: 1.1; }
+      .lc-total-label { display: block; margin-top: 5px; color: var(--muted); font-size: 0.8rem; }
+      .lc-breakdown { display: grid; gap: 9px; align-content: center; }
+      .difficulty-row { display: grid; grid-template-columns: 65px 1fr 68px; align-items: center; gap: 10px; font-size: 0.79rem; }
+      .difficulty-name { color: var(--muted); }
+      .difficulty-name.easy { color: #299761; }
+      .difficulty-name.medium { color: #c2811a; }
+      .difficulty-name.hard { color: #d35f5f; }
+      .difficulty-track { height: 7px; overflow: hidden; border-radius: 10px; background: #eff0f3; }
+      .difficulty-fill { display: block; width: 0; height: 100%; border-radius: inherit; transition: width 500ms ease; }
+      .difficulty-fill.easy { background: #4caf7a; }
+      .difficulty-fill.medium { background: #e5a839; }
+      .difficulty-fill.hard { background: #dd7070; }
+      .difficulty-value { color: #444b57; text-align: right; white-space: nowrap; }
+      .lc-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .lc-pill { padding: 5px 9px; border-radius: 7px; color: #59616c; background: #f4f5f7; font-size: 0.76rem; }
+      .lc-error { margin: 10px 0 0; color: var(--red); font-size: 0.82rem; }
+      .lc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 0.83rem; font-weight: 680; }
+      .lc-heatmap-wrap { margin-top: 19px; }
+      .heatmap-heading { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 8px; }
+      .heatmap-heading strong { font-size: 0.87rem; }
+      .heatmap-heading span { color: var(--soft); font-size: 0.75rem; }
+      .heatmap-scroll { overflow-x: auto; padding-bottom: 4px; }
+      .heatmap-grid { display: grid; grid-template-rows: repeat(7, 11px); grid-auto-flow: column; grid-auto-columns: 11px; gap: 3px; width: max-content; min-width: 100%; }
+      .heat-cell { width: 11px; height: 11px; border-radius: 2px; background: #eff0f2; }
+      .heat-cell[data-level="1"] { background: #d2e8d9; }
+      .heat-cell[data-level="2"] { background: #9ed1ae; }
+      .heat-cell[data-level="3"] { background: #5da977; }
+      .heat-cell[data-level="4"] { background: #287c4d; }
+      .heat-cell.empty { opacity: 0; }
+      .heatmap-legend { display: flex; justify-content: flex-end; align-items: center; gap: 4px; margin-top: 7px; color: var(--soft); font-size: 0.7rem; }
+      .heatmap-legend .heat-cell { display: inline-block; }
+      .recent-title { margin: 22px 0 9px; font-size: 0.94rem; font-weight: 700; }
+      .attempt-list { display: grid; gap: 0; }
+      .attempt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid #f0f1f3; }
+      .attempt-name { overflow: hidden; color: var(--ink); font-size: 0.83rem; font-weight: 610; text-overflow: ellipsis; white-space: nowrap; }
+      .attempt-name:hover { color: var(--blue-dark); }
+      .attempt-meta { display: flex; align-items: center; gap: 9px; color: var(--soft); font-size: 0.73rem; }
+      .attempt-status { color: var(--green); font-weight: 700; }
+      .attempt-status.failed { color: var(--red); }
+      .attempt-empty { padding: 12px 0; color: var(--muted); font-size: 0.83rem; }
+
+      .github-panel { padding: 17px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+      .github-chart-scroll { overflow-x: auto; }
+      .github-heatmap { display: grid; grid-template-rows: repeat(7, 11px); grid-auto-flow: column; grid-auto-columns: 11px; gap: 3px; width: max-content; min-width: 100%; }
+      .github-cell { width: 11px; height: 11px; border-radius: 2px; background: #eff0f2; }
+      .github-cell[data-level="1"] { background: #d2e8d9; }
+      .github-cell[data-level="2"] { background: #9ed1ae; }
+      .github-cell[data-level="3"] { background: #5da977; }
+      .github-cell[data-level="4"] { background: #287c4d; }
+      .github-note { margin: 9px 0 0; color: var(--soft); font-size: 0.76rem; }
+
+      .project-list { display: grid; gap: 0; }
+      .project {
         display: grid;
-        place-items: center;
-        border-radius: 13px;
-        color: white;
-        background: var(--blue);
-        box-shadow: 0 8px 18px rgba(83, 104, 232, 0.24);
+        grid-template-columns: 122px minmax(0, 1fr);
+        gap: 17px;
+        padding: 17px 0;
+        border-top: 1px solid var(--line);
       }
+      .project:first-child { padding-top: 0; border-top: 0; }
+      .project-art { position: relative; min-height: 92px; display: grid; place-items: center; overflow: hidden; border: 1px solid #eaebf0; border-radius: 9px; background: linear-gradient(145deg, #f1f3ff, #f8fbff); }
+      .project-art::before, .project-art::after { position: absolute; width: 68px; height: 68px; border: 1px solid rgba(83, 104, 232, .12); border-radius: 50%; content: ""; }
+      .project-art::after { width: 42px; height: 42px; }
+      .project-symbol { position: relative; z-index: 1; color: var(--blue-dark); font-size: 1.25rem; font-weight: 800; letter-spacing: -0.06em; }
+      .project:nth-child(2) .project-art { background: linear-gradient(145deg, #edf8f3, #f8fcf8); }
+      .project:nth-child(2) .project-symbol { color: #288252; }
+      .project:nth-child(3) .project-art { background: linear-gradient(145deg, #fff5e8, #fffaf3); }
+      .project:nth-child(3) .project-symbol { color: #aa7520; }
+      .project:nth-child(4) .project-art { background: linear-gradient(145deg, #eef7ff, #f8fbff); }
+      .project:nth-child(4) .project-symbol { color: #3978a8; }
+      .project-title-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px 11px; margin-bottom: 4px; }
+      .project-title { margin: 0; font-size: 0.97rem; font-weight: 700; letter-spacing: -0.02em; }
+      .project-title a { color: var(--blue-dark); }
+      .project-type { color: var(--soft); font-size: 0.73rem; }
+      .project-description { margin: 0 0 8px; color: #606671; font-size: 0.83rem; line-height: 1.55; }
+      .project-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 13px; }
+      .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+      .project-stack span { padding: 2px 7px; border-radius: 5px; color: #5d6570; background: #f1f2f4; font-size: 0.69rem; }
+      .repo-link { font-size: 0.77rem; font-weight: 650; white-space: nowrap; }
 
-      .nav-links { display: flex; align-items: center; gap: 29px; }
-      .nav-links a { color: var(--muted); font-size: 0.91rem; text-decoration: none; transition: color 160ms ease; }
-      .nav-links a:hover { color: var(--blue-dark); }
-      .nav-links .nav-contact { color: var(--blue-dark); font-weight: 700; }
+      .resume-card { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px; border: 1px solid var(--line); border-radius: 11px; background: #fff; }
+      .resume-card h3 { margin: 0 0 3px; font-size: 0.95rem; }
+      .resume-card p { margin: 0; color: var(--muted); font-size: 0.8rem; }
+      .resume-actions { display: flex; flex: 0 0 auto; gap: 8px; }
+      .button { display: inline-flex; justify-content: center; align-items: center; gap: 7px; min-height: 39px; padding: 0 13px; border: 1px solid var(--line); border-radius: 8px; color: #343a44; background: white; font-size: 0.8rem; font-weight: 680; }
+      .button:hover { border-color: #bfc8fb; color: var(--blue-dark); text-decoration: none; }
+      .button.primary { border-color: var(--blue); color: #fff; background: var(--blue); }
+      .button.primary:hover { border-color: var(--blue-dark); background: var(--blue-dark); color: #fff; }
 
-      .hero {
-        min-height: 590px;
-        display: grid;
-        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-        align-items: center;
-        gap: 52px;
-        padding-block: 74px 84px;
+      .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+      .contact-link { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 13px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: #fff; }
+      .contact-link:hover { border-color: #c7cdf5; text-decoration: none; }
+      .contact-icon { width: 32px; height: 32px; display: grid; place-items: center; flex: 0 0 32px; border-radius: 8px; color: var(--blue-dark); background: #f0f2ff; font-size: 0.76rem; font-weight: 750; }
+      .contact-copy { min-width: 0; }
+      .contact-copy strong { display: block; font-size: 0.81rem; }
+      .contact-copy span { display: block; overflow: hidden; color: var(--muted); font-size: 0.73rem; text-overflow: ellipsis; white-space: nowrap; }
+      footer { padding: 22px 0 0; color: var(--soft); font-size: 0.76rem; }
+      .footer-row { display: flex; justify-content: space-between; gap: 15px; padding-top: 13px; border-top: 1px solid var(--line); }
+
+      @media (max-width: 850px) {
+        .layout { grid-template-columns: 210px minmax(0, 1fr); gap: 25px; }
+        .avatar-wrap { width: 135px; }
+        .profile-card { padding: 17px 15px; }
+        .value-grid { grid-template-columns: 1fr; }
+        .skill-group { grid-template-columns: 115px minmax(0, 1fr); }
       }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        margin: 0 0 20px;
-        color: var(--blue-dark);
-        font-size: 0.82rem;
-        font-weight: 750;
-        letter-spacing: 0.075em;
-        text-transform: uppercase;
+      @media (max-width: 650px) {
+        .shell { width: min(100% - 30px, 1200px); }
+        .topbar-inner { min-height: 58px; }
+        .top-links { gap: 12px; font-size: 0.8rem; }
+        .layout { grid-template-columns: 1fr; gap: 19px; padding-top: 19px; }
+        .sidebar { position: static; }
+        .profile-card { display: grid; grid-template-columns: 74px minmax(0, 1fr); column-gap: 15px; align-items: center; padding: 15px; }
+        .avatar-wrap { grid-row: span 3; width: 74px; margin: 0; }
+        .avatar-status { right: 0; bottom: 3px; width: 17px; height: 17px; border-width: 3px; }
+        .profile-name { font-size: 1.05rem; }
+        .profile-handle { margin: 1px 0 3px; font-size: 0.82rem; }
+        .profile-bio { font-size: 0.79rem; }
+        .profile-counts, .side-links, .side-rule, .side-label, .focus-badges { display: none; }
+        .tabs { gap: 19px; }
+        .tabs a { font-size: 0.81rem; }
+        .content-section { padding-block: 22px 25px; }
+        .lc-summary { grid-template-columns: 1fr; }
+        .lc-total { min-height: 115px; }
+        .skill-group { grid-template-columns: 1fr; gap: 5px; }
+        .skill-group-name { padding: 0; }
+        .project { grid-template-columns: 83px minmax(0, 1fr); gap: 12px; }
+        .project-art { min-height: 75px; }
+        .project-symbol { font-size: 1rem; }
+        .resume-card { align-items: flex-start; flex-direction: column; }
+        .resume-actions { flex-wrap: wrap; }
       }
-
-      .status-dot {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: #38a87b;
-        box-shadow: 0 0 0 4px #dff3ea;
+      @media (max-width: 420px) {
+        .top-links { gap: 10px; }
+        .top-links a:nth-child(2) { display: none; }
+        .contact-grid { grid-template-columns: 1fr; }
+        .attempt-meta { gap: 5px; }
+        .attempt-name { font-size: 0.78rem; }
       }
-
-      h1, h2, h3, p { margin-top: 0; }
-
-      h1 {
-        max-width: 720px;
-        margin-bottom: 20px;
-        font-size: clamp(2.9rem, 6vw, 5rem);
-        font-weight: 790;
-        letter-spacing: -0.075em;
-        line-height: 1.03;
+      @media (max-width: 350px) {
+        .top-links a:first-child { display: none; }
+        .leetcode-top { flex-wrap: wrap; }
       }
-
-      h1 span { color: var(--blue); }
-
-      .hero-copy {
-        max-width: 625px;
-        margin-bottom: 28px;
-        color: var(--muted);
-        font-size: clamp(1.02rem, 2vw, 1.16rem);
-      }
-
-      .hero-copy strong { color: var(--ink); font-weight: 650; }
-
-      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-
-      .button {
-        min-height: 48px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        padding: 0 19px;
-        border: 1px solid transparent;
-        border-radius: 14px;
-        color: white;
-        background: var(--blue);
-        box-shadow: 0 9px 22px rgba(83, 104, 232, 0.2);
-        font-size: 0.94rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
-      }
-
-      .button:hover { transform: translateY(-2px); background: var(--blue-dark); box-shadow: 0 12px 26px rgba(83, 104, 232, 0.25); }
-      .button.secondary { color: var(--ink); background: white; border-color: var(--line); box-shadow: none; }
-      .button.secondary:hover { color: var(--blue-dark); border-color: #cbd2ff; background: #fbfbff; }
-      .button.text-button { min-height: 42px; padding-inline: 5px; color: var(--muted); background: transparent; box-shadow: none; }
-      .button.text-button:hover { color: var(--blue-dark); transform: none; }
-
-      .portrait-wrap { position: relative; justify-self: center; width: min(350px, 100%); }
-
-      .portrait-card {
-        position: relative;
-        padding: 17px;
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        border-radius: 34px;
-        background: rgba(255, 255, 255, 0.68);
-        box-shadow: var(--shadow);
-        transform: rotate(2deg);
-      }
-
-      .portrait {
-        display: block;
-        width: 100%;
-        aspect-ratio: 0.94;
-        border-radius: 24px;
-        background: linear-gradient(145deg, #dce5ff, #eaf5f1);
-        object-fit: cover;
-      }
-
-      .portrait-note {
-        position: absolute;
-        right: -24px;
-        bottom: 31px;
-        max-width: 190px;
-        padding: 13px 16px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: white;
-        box-shadow: 0 12px 30px rgba(30, 43, 82, 0.12);
-        font-size: 0.82rem;
-        line-height: 1.45;
-        transform: rotate(-2deg);
-      }
-
-      .portrait-note strong { display: block; color: var(--ink); font-size: 0.93rem; }
-      .portrait-note span { color: var(--muted); }
-
-      .section { padding-block: 72px; scroll-margin-top: 90px; }
-      .section-heading { max-width: 680px; margin-bottom: 29px; }
-      .section-kicker { margin-bottom: 9px; color: var(--blue-dark); font-size: 0.78rem; font-weight: 760; letter-spacing: 0.12em; text-transform: uppercase; }
-      .section-heading h2 { margin-bottom: 9px; font-size: clamp(1.9rem, 4vw, 2.7rem); letter-spacing: -0.055em; line-height: 1.17; }
-      .section-heading p { margin-bottom: 0; color: var(--muted); }
-
-      .about-grid { display: grid; grid-template-columns: 1fr 0.9fr; gap: 22px; }
-      .panel { padding: clamp(24px, 4vw, 36px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 8px 30px rgba(30, 43, 82, 0.035); }
-      .panel h3 { margin-bottom: 11px; font-size: 1.15rem; letter-spacing: -0.025em; }
-      .panel p { margin-bottom: 0; color: var(--muted); }
-      .focus-list { display: grid; gap: 16px; }
-      .focus-item { display: grid; grid-template-columns: 39px 1fr; gap: 13px; align-items: start; }
-      .focus-icon { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 13px; color: var(--blue-dark); background: #eef0ff; font-weight: 750; }
-      .focus-item strong { display: block; margin-bottom: 2px; font-size: 0.96rem; }
-      .focus-item span { display: block; color: var(--muted); font-size: 0.9rem; }
-
-      .skills { display: flex; flex-wrap: wrap; gap: 10px; }
-      .skill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 9px 13px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        color: #39445f;
-        background: white;
-        font-size: 0.88rem;
-        font-weight: 600;
-      }
-
-      .skill::before { width: 7px; height: 7px; border-radius: 50%; background: #91a0ef; content: ""; }
-
-      .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-      .project-card {
-        min-height: 250px;
-        display: flex;
-        flex-direction: column;
-        padding: 25px;
-        border: 1px solid var(--line);
-        border-radius: 21px;
-        background: white;
-        box-shadow: 0 8px 28px rgba(30, 43, 82, 0.035);
-        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-      }
-
-      .project-card:hover { transform: translateY(-4px); border-color: #d7dcff; box-shadow: 0 18px 38px rgba(30, 43, 82, 0.085); }
-      .project-card.featured { border-color: #d9defe; background: linear-gradient(145deg, #fff 50%, #f5f6ff); }
-      .project-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 15px; }
-      .project-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; color: var(--blue-dark); background: #eef0ff; font-size: 0.88rem; font-weight: 800; }
-      .project-label { color: var(--soft); font-size: 0.75rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
-      .project-card h3 { margin-bottom: 8px; font-size: 1.14rem; letter-spacing: -0.03em; }
-      .project-card p { margin-bottom: 18px; color: var(--muted); font-size: 0.93rem; }
-      .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; margin-bottom: 17px; }
-      .tag { padding: 4px 9px; border-radius: 999px; color: #59647e; background: #f1f3f8; font-size: 0.74rem; font-weight: 650; }
-      .project-link { display: inline-flex; align-items: center; gap: 7px; width: fit-content; color: var(--blue-dark); font-size: 0.88rem; font-weight: 730; text-decoration: none; }
-      .project-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-
-      .practice-card {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 24px;
-        padding: clamp(26px, 4vw, 39px);
-        border: 1px solid #dfe5ff;
-        border-radius: var(--radius);
-        background: linear-gradient(115deg, #eef1ff, #f8f9ff 72%);
-      }
-
-      .practice-card h3 { margin-bottom: 7px; font-size: 1.3rem; letter-spacing: -0.035em; }
-      .practice-card p { max-width: 660px; margin-bottom: 0; color: var(--muted); }
-      .practice-badge { width: 62px; height: 62px; display: grid; place-items: center; border-radius: 20px; color: var(--blue-dark); background: white; font-size: 1.6rem; box-shadow: 0 8px 22px rgba(83, 104, 232, 0.1); }
-
-      .contact-card {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 28px;
-        padding: clamp(28px, 5vw, 48px);
-        border-radius: 28px;
-        color: white;
-        background: #202b49;
-        box-shadow: 0 22px 54px rgba(32, 43, 73, 0.18);
-      }
-
-      .contact-card .section-kicker { color: #aeb9ff; }
-      .contact-card h2 { margin-bottom: 9px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.05em; }
-      .contact-card p { max-width: 560px; margin-bottom: 0; color: #c2cbe0; }
-      .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-      .contact-actions .button { color: #202b49; background: white; box-shadow: none; }
-      .contact-actions .button:hover { color: var(--blue-dark); background: #eff1ff; }
-      .contact-actions .social-link { color: #e1e6f4; font-size: 0.88rem; text-decoration: none; }
-      .contact-actions .social-link:hover { color: white; text-decoration: underline; }
-
-      footer { padding-block: 30px; color: var(--soft); font-size: 0.84rem; }
-      .footer-row { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
-      footer a { color: var(--muted); text-decoration: none; }
-      footer a:hover { color: var(--blue-dark); }
-
-      @media (max-width: 780px) {
-        .hero { min-height: auto; grid-template-columns: 1fr; gap: 38px; padding-block: 62px 68px; }
-        .hero-content { order: 1; }
-        .portrait-wrap { order: 0; width: min(250px, 78%); }
-        .portrait-card { padding: 12px; border-radius: 27px; }
-        .portrait { border-radius: 19px; }
-        .portrait-note { right: -25px; bottom: 21px; }
-        .about-grid { grid-template-columns: 1fr; }
-        .section { padding-block: 55px; }
-      }
-
-      @media (max-width: 560px) {
-        .shell { width: min(100% - 30px, 1120px); }
-        .nav { min-height: 67px; gap: 12px; }
-        .brand { font-size: 0.92rem; }
-        .brand-mark { width: 34px; height: 34px; }
-        .nav-links { gap: 14px; }
-        .nav-links a { font-size: 0.8rem; }
-        .nav-links a:nth-child(2) { display: none; }
-        .hero { padding-block: 46px 55px; }
-        h1 { font-size: clamp(2.75rem, 13vw, 4rem); }
-        .project-grid { grid-template-columns: 1fr; }
-        .project-card { min-height: 230px; }
-        .practice-card, .contact-card { grid-template-columns: 1fr; }
-        .practice-badge { display: none; }
-        .contact-actions { width: 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 14px; }
-        .contact-actions .button { width: 100%; max-width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
-        .footer-row { flex-direction: column; gap: 5px; }
-      }
-
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
       }
@@ -338,204 +262,403 @@
   </head>
   <body>
     <header class="topbar">
-      <nav class="nav shell" aria-label="Main navigation">
-        <a class="brand" href="#home" aria-label="Harsh Upadhyay home">
-          <span class="brand-mark" aria-hidden="true">H</span>
-          <span>Harsh Upadhyay</span>
-        </a>
-        <div class="nav-links">
-          <a href="#about">About</a>
+      <nav class="topbar-inner shell" aria-label="Main navigation">
+        <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">H</span><span>Harsh Upadhyay</span></a>
+        <div class="top-links">
+          <a href="#about">Overview</a>
           <a href="#projects">Projects</a>
-          <a class="nav-contact" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+          <a class="top-cta" href="#contact">Contact ↗</a>
         </div>
       </nav>
     </header>
 
-    <main>
-      <section class="hero shell" id="home">
-        <div class="hero-content">
-          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Aspiring Software Development Engineer</p>
-          <h1>Hi, I'm Harsh.<br><span>I build for the web.</span></h1>
-          <p class="hero-copy">
-            A <strong>B.Tech CSIT student at G.L. Bajaj Institute of Technology and Management</strong>,
-            focused on Java, Spring Boot, and thoughtful software. I enjoy turning what I learn into
-            practical projects and steadily sharpening my engineering fundamentals.
-          </p>
-          <div class="actions">
-            <a class="button" href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
-            <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener">View resume <span aria-hidden="true">↗</span></a>
-            <a class="button text-button" href="mailto:upadhyayharsh569@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+    <main class="layout shell" id="home">
+      <aside class="sidebar" aria-label="Profile">
+        <div class="profile-card">
+          <div class="avatar-wrap">
+            <img class="avatar" src="https://avatars.githubusercontent.com/u/287495828?v=4" alt="Harsh Upadhyay profile photo">
+            <span class="avatar-status" title="Open to connecting" aria-label="Open to connecting"></span>
           </div>
+          <h1 class="profile-name">Harsh Upadhyay</h1>
+          <p class="profile-handle">harshupadhyay2026 · software developer</p>
+          <p class="profile-bio">B.Tech CSIT student | Aspiring SDE | Java &amp; Spring Boot</p>
+          <ul class="side-links">
+            <li><span class="side-icon" aria-hidden="true">▤</span><span>G.L. Bajaj Institute of Technology and Management</span></li>
+            <li><span class="side-icon" aria-hidden="true">⌖</span><a href="mailto:upadhyayharsh569@gmail.com">upadhyayharsh569@gmail.com</a></li>
+            <li><span class="side-icon" aria-hidden="true">in</span><a href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener">linkedin.com/in/harsh-upadhyay</a></li>
+            <li><span class="side-icon" aria-hidden="true">◎</span><a href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">leetcode.com/u/harshupadhyay2026</a></li>
+            <li><span class="side-icon" aria-hidden="true">◉</span><a href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">github.com/Harshupadhyay2026</a></li>
+            <li><span class="side-icon" aria-hidden="true">↗</span><a href="https://harshupadhyay2026.github.io">harshupadhyay2026.github.io</a></li>
+          </ul>
+          <hr class="side-rule">
+          <p class="side-label">Highlights</p>
+          <div class="focus-badges"><span class="focus-badge">Java Backend</span><span class="focus-badge">Spring Boot</span><span class="focus-badge">DSA</span></div>
         </div>
+      </aside>
 
-        <div class="portrait-wrap">
-          <div class="portrait-card">
-            <img class="portrait" src="https://avatars.githubusercontent.com/u/287495828?v=4" alt="Harsh Upadhyay's profile portrait">
-          </div>
-          <div class="portrait-note">
-            <strong>Curious by nature.</strong>
-            <span>Building skills through real projects.</span>
-          </div>
-        </div>
-      </section>
+      <div class="main">
+        <nav class="tabs" aria-label="Profile sections">
+          <a href="#about">Overview</a>
+          <a href="#skills">Skills</a>
+          <a href="#leetcode">LeetCode</a>
+          <a href="#activity">Activity</a>
+          <a href="#projects">Projects</a>
+        </nav>
 
-      <section class="section shell" id="about">
-        <div class="section-heading">
-          <p class="section-kicker">A little about me</p>
-          <h2>Learning by building, growing with every project.</h2>
-          <p>My focus is backend development with Java and Spring Boot, alongside the skills to build useful, complete web experiences.</p>
-        </div>
-        <div class="about-grid">
-          <article class="panel">
-            <h3>My approach</h3>
-            <p>
-              I like understanding how things work, then applying that knowledge to software people can use.
-              From REST APIs and database-backed applications to frontend fundamentals and data-structure
-              practice, I’m working toward becoming a well-rounded software development engineer.
-            </p>
-          </article>
-          <article class="panel">
-            <h3>What I'm focused on</h3>
-            <div class="focus-list">
-              <div class="focus-item">
-                <span class="focus-icon" aria-hidden="true">01</span>
-                <div><strong>Java backend development</strong><span>Spring Boot, REST APIs, and relational data</span></div>
-              </div>
-              <div class="focus-item">
-                <span class="focus-icon" aria-hidden="true">02</span>
-                <div><strong>Data structures & algorithms</strong><span>Consistent problem solving with Java</span></div>
-              </div>
-              <div class="focus-item">
-                <span class="focus-icon" aria-hidden="true">03</span>
-                <div><strong>Building practical software</strong><span>Taking ideas from a first commit to a usable project</span></div>
+        <section class="content-section" id="about">
+          <p class="about-lead"><strong>B.Tech CSIT student at G.L. Bajaj Institute of Technology and Management.</strong> I’m building a strong foundation in software engineering through hands-on projects, consistent problem solving, and curiosity about how reliable applications are made.</p>
+          <h2 class="section-title">Who I am</h2>
+          <p class="body-copy">I’m an aspiring software development engineer with a particular interest in Java backend development. I enjoy taking an idea from the data model and API through to an application people can use, and I’m currently exploring Generative AI alongside my core software engineering skills.</p>
+          <h3 class="subheading">What I value</h3>
+          <p class="body-copy">Steady learning, clear problem solving, and building practical software. My projects help me connect Java, Spring Boot, databases, and frontend fundamentals with real application workflows.</p>
+          <h3 class="subheading">What I’m working toward</h3>
+          <p class="body-copy">Growing into a software development engineer focused on Java and Spring Boot, with strong data structures, algorithms, and full-stack collaboration skills.</p>
+          <div class="value-grid">
+            <div class="value-card"><strong>Build</strong><span>Turn ideas into useful, working applications.</span></div>
+            <div class="value-card"><strong>Practice</strong><span>Improve problem solving with regular DSA work.</span></div>
+            <div class="value-card"><strong>Learn</strong><span>Strengthen backend fundamentals one project at a time.</span></div>
+          </div>
+        </section>
+
+        <section class="content-section" id="skills">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-intro">The tools and foundations I’m using as I grow as a developer.</p>
+          <div class="skill-groups">
+            <div class="skill-group">
+              <span class="skill-group-name">Languages</span>
+              <div class="skill-list">
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=java" alt="">Java</span>
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=python" alt="">Python</span>
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=cpp" alt="">C++</span>
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=html" alt="">HTML</span>
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=css" alt="">CSS</span>
               </div>
             </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section shell" id="skills">
-        <div class="section-heading">
-          <p class="section-kicker">Tools I work with</p>
-          <h2>My current toolkit</h2>
-        </div>
-        <div class="skills" aria-label="Technical skills">
-          <span class="skill">Java</span>
-          <span class="skill">Spring Boot</span>
-          <span class="skill">REST APIs</span>
-          <span class="skill">Spring Data JPA</span>
-          <span class="skill">MySQL</span>
-          <span class="skill">React</span>
-          <span class="skill">Python</span>
-          <span class="skill">C++</span>
-          <span class="skill">HTML</span>
-          <span class="skill">CSS</span>
-          <span class="skill">Git & GitHub</span>
-          <span class="skill">Data Structures & Algorithms</span>
-        </div>
-      </section>
-
-      <section class="section shell" id="projects">
-        <div class="section-heading">
-          <p class="section-kicker">Selected work</p>
-          <h2>Projects I've been learning from.</h2>
-          <p>A few projects from my journey so far. Each repository links to the source on GitHub.</p>
-        </div>
-        <div class="project-grid">
-          <article class="project-card featured">
-            <div class="project-top"><span class="project-mark" aria-hidden="true">SS</span><span class="project-label">Featured · Full stack</span></div>
-            <h3>SkillSwap</h3>
-            <p>A peer-to-peer platform where students can exchange skills, arrange learning sessions, message, share Q&A, and review completed sessions.</p>
-            <div class="tags"><span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">MySQL</span></div>
-            <a class="project-link" href="https://github.com/Harshupadhyay2026/skillswap" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top"><span class="project-mark" aria-hidden="true">API</span><span class="project-label">Backend</span></div>
-            <h3>Student CRUD REST API</h3>
-            <p>A database-backed student management application for creating, reading, updating, and deleting student records through REST endpoints.</p>
-            <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring Data JPA</span><span class="tag">MySQL</span></div>
-            <a class="project-link" href="https://github.com/Harshupadhyay2026/springboot_crud_dev" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top"><span class="project-mark" aria-hidden="true">BM</span><span class="project-label">Java · OOP</span></div>
-            <h3>Bank Management System</h3>
-            <p>A Java project for practicing object-oriented programming through balance checks, deposits, debits, transfers, and interest calculations.</p>
-            <div class="tags"><span class="tag">Java</span><span class="tag">OOP</span></div>
-            <a class="project-link" href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top"><span class="project-mark" aria-hidden="true">BAT</span><span class="project-label">Python · Utility</span></div>
-            <h3>Battery Notifier</h3>
-            <p>A Termux utility that sends notifications when a device battery is low or reaches a full charge.</p>
-            <div class="tags"><span class="tag">Python</span><span class="tag">Termux</span></div>
-            <a class="project-link" href="https://github.com/Harshupadhyay2026/Battery_notifications_project" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top"><span class="project-mark" aria-hidden="true">C++</span><span class="project-label">C++ · Practice</span></div>
-            <h3>Console Programming Projects</h3>
-            <p>A collection of console programs including library, bank, and student management exercises, plus a Tic-Tac-Toe project.</p>
-            <div class="tags"><span class="tag">C++</span><span class="tag">Programming fundamentals</span></div>
-            <a class="project-link" href="https://github.com/Harshupadhyay2026/Internship_portal" target="_blank" rel="noopener">View repository <span aria-hidden="true">↗</span></a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section shell" id="leetcode">
-        <div class="section-heading">
-          <p class="section-kicker">Problem solving</p>
-          <h2>Learning one problem at a time.</h2>
-        </div>
-        <div class="practice-card">
-          <div>
-            <h3>LeetCode · @harshupadhyay2026</h3>
-            <p>I use coding challenges to strengthen my data structures, algorithms, and Java problem-solving skills. Explore my profile and solutions.</p>
+            <div class="skill-group">
+              <span class="skill-group-name">Backend &amp; APIs</span>
+              <div class="skill-list">
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=spring" alt="">Spring Boot</span>
+                <span class="skill-chip">REST APIs</span>
+                <span class="skill-chip">Spring Data JPA</span>
+                <span class="skill-chip">Maven</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <span class="skill-group-name">Database &amp; ORM</span>
+              <div class="skill-list">
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=mysql" alt="">MySQL</span>
+                <span class="skill-chip">Relational data</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <span class="skill-group-name">Frontend</span>
+              <div class="skill-list">
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=react" alt="">React</span>
+                <span class="skill-chip">Responsive UI</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <span class="skill-group-name">Tools &amp; foundations</span>
+              <div class="skill-list">
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=git" alt="">Git</span>
+                <span class="skill-chip"><img src="https://skillicons.dev/icons?i=github" alt="">GitHub</span>
+                <span class="skill-chip">OOP</span>
+                <span class="skill-chip">Data Structures &amp; Algorithms</span>
+              </div>
+            </div>
           </div>
-          <span class="practice-badge" aria-hidden="true">{ }</span>
-          <a class="button secondary" href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">Visit LeetCode <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
+        </section>
 
-      <section class="section shell" id="resume">
-        <div class="section-heading">
-          <p class="section-kicker">Experience at a glance</p>
-          <h2>A concise snapshot of my background.</h2>
-          <p>My resume covers my education, technical toolkit, and selected projects. It’s based on the details currently available on my profile.</p>
-        </div>
-        <div class="panel">
-          <h3>Harsh Upadhyay · Aspiring Software Development Engineer</h3>
-          <p>B.Tech CSIT student at G.L. Bajaj Institute of Technology and Management, focused on Java backend development with Spring Boot and practical software projects.</p>
-          <div class="actions" style="margin-top: 20px">
-            <a class="button" href="resume.pdf" target="_blank" rel="noopener">Open resume PDF <span aria-hidden="true">↗</span></a>
-            <a class="button secondary" href="resume.html">View accessible resume page <span aria-hidden="true">↗</span></a>
+        <section class="content-section" id="leetcode">
+          <h2 class="section-title">LeetCode</h2>
+          <p class="section-intro">Live problem-solving stats and recent submissions from my LeetCode profile.</p>
+          <div class="leetcode-panel">
+            <div class="leetcode-top">
+              <div class="leetcode-user">
+                <span class="lc-mark" aria-hidden="true">LC</span>
+                <span><strong>harshupadhyay2026</strong><span>Java · DSA practice</span></span>
+              </div>
+              <span class="live-status" id="lc-status" aria-live="polite"><i class="live-dot loading" id="lc-dot"></i><span id="lc-status-text">Loading live stats…</span></span>
+            </div>
+            <div class="lc-summary" id="lc-summary" aria-live="polite">
+              <div class="lc-total"><strong class="lc-total-value" id="lc-total">—</strong><span class="lc-total-label">Problems solved</span></div>
+              <div class="lc-breakdown">
+                <div class="difficulty-row"><span class="difficulty-name easy">Easy</span><span class="difficulty-track"><i class="difficulty-fill easy" id="lc-easy-bar"></i></span><span class="difficulty-value" id="lc-easy">—</span></div>
+                <div class="difficulty-row"><span class="difficulty-name medium">Medium</span><span class="difficulty-track"><i class="difficulty-fill medium" id="lc-medium-bar"></i></span><span class="difficulty-value" id="lc-medium">—</span></div>
+                <div class="difficulty-row"><span class="difficulty-name hard">Hard</span><span class="difficulty-track"><i class="difficulty-fill hard" id="lc-hard-bar"></i></span><span class="difficulty-value" id="lc-hard">—</span></div>
+                <div class="lc-meta"><span class="lc-pill">Rank <strong id="lc-rank">—</strong></span><span class="lc-pill"><strong id="lc-submissions">—</strong> submissions</span></div>
+              </div>
+            </div>
+            <p class="lc-error" id="lc-error" hidden></p>
+            <div class="lc-heatmap-wrap">
+              <div class="heatmap-heading"><strong>Submission activity</strong><span id="lc-activity-caption">Last 12 months</span></div>
+              <div class="heatmap-scroll"><div class="heatmap-grid" id="lc-heatmap" aria-label="LeetCode submission activity heatmap"></div></div>
+              <div class="heatmap-legend"><span>Less</span><i class="heat-cell"></i><i class="heat-cell" data-level="1"></i><i class="heat-cell" data-level="2"></i><i class="heat-cell" data-level="3"></i><i class="heat-cell" data-level="4"></i><span>More</span></div>
+            </div>
+            <h3 class="recent-title">Latest Attempts</h3>
+            <div class="attempt-list" id="lc-attempts"><p class="attempt-empty">Loading recent LeetCode submissions…</p></div>
+            <a class="lc-link" href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">Open LeetCode profile ↗</a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section shell" id="contact">
-        <div class="contact-card">
-          <div>
-            <p class="section-kicker">Contact & connect</p>
-            <h2>Have a project or opportunity in mind?</h2>
-            <p>I’m an aspiring SDE focused on Java backend development and Spring Boot. Reach out if you’d like to connect, discuss a project, or share an opportunity.</p>
+        <section class="content-section" id="activity">
+          <h2 class="section-title">GitHub Contribution</h2>
+          <p class="section-intro">A snapshot of my public GitHub contribution activity.</p>
+          <div class="github-panel">
+            <div class="heatmap-heading"><strong>Contribution activity</strong><span id="github-total">Loading contributions…</span></div>
+            <div class="github-chart-scroll">
+              <div class="github-heatmap" id="github-heatmap" role="img" aria-label="GitHub contribution activity for the last 12 months"></div>
+            </div>
+            <div class="heatmap-legend"><span>Less</span><i class="heat-cell"></i><i class="heat-cell" data-level="1"></i><i class="heat-cell" data-level="2"></i><i class="heat-cell" data-level="3"></i><i class="heat-cell" data-level="4"></i><span>More</span></div>
+            <p class="github-note" id="github-error" hidden></p>
+            <p class="github-note">Public contributions over the last 12 months. <a href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">View my GitHub profile ↗</a></p>
           </div>
-          <div class="contact-actions">
-            <a class="button" href="mailto:upadhyayharsh569@gmail.com">upadhyayharsh569@gmail.com <span aria-hidden="true">↗</span></a>
-            <a class="social-link" href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
-            <a class="social-link" href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        </section>
+
+        <section class="content-section" id="projects">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-intro">Selected work across full-stack development, backend APIs, Java, Python, C++, and coding practice. Explore each repository for the source.</p>
+          <div class="project-list">
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">SS</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/skillswap" target="_blank" rel="noopener">SkillSwap</a></h3><span class="project-type">Full-stack learning platform</span></div>
+                <p class="project-description">Peer-to-peer skill exchange for students, with skill swaps, shared learning sessions, video rooms, messaging, Q&amp;A, reviews, and notifications.</p>
+                <div class="project-bottom"><div class="project-stack"><span>Java 21</span><span>Spring Boot</span><span>React</span><span>MySQL</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/skillswap" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">API</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/springboot_crud_dev" target="_blank" rel="noopener">Student CRUD Application</a></h3><span class="project-type">REST API</span></div>
+                <p class="project-description">Student record management using REST endpoints and a relational database, structured with controller, service, entity, and repository layers.</p>
+                <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Spring Boot</span><span>Spring Data JPA</span><span>MySQL</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/springboot_crud_dev" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">CRUD</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/springboot_crud_app" target="_blank" rel="noopener">Spring Boot CRUD App</a></h3><span class="project-type">Java practice project</span></div>
+                <p class="project-description">A separate Spring Boot CRUD application repository documenting continued practice with backend application development.</p>
+                <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Spring Boot</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/springboot_crud_app" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">BM</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS" target="_blank" rel="noopener">Bank Management System</a></h3><span class="project-type">Java · OOP</span></div>
+                <p class="project-description">A Java project practicing core OOP concepts through deposits, debits, transfers, balance checks, and interest calculations.</p>
+                <div class="project-bottom"><div class="project-stack"><span>Java</span><span>OOP</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">BAT</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/Battery_notifications_project" target="_blank" rel="noopener">Battery Notifier</a></h3><span class="project-type">Python · Termux</span></div>
+                <p class="project-description">A battery monitoring utility that sends Termux notifications for low battery and a full charge.</p>
+                <div class="project-bottom"><div class="project-stack"><span>Python</span><span>Termux</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/Battery_notifications_project" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">C++</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/Internship_portal" target="_blank" rel="noopener">C++ Console Applications</a></h3><span class="project-type">Programming fundamentals</span></div>
+                <p class="project-description">Console exercises including library, bank, and student management programs, plus a Tic-Tac-Toe implementation.</p>
+                <div class="project-bottom"><div class="project-stack"><span>C++</span><span>Console applications</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/Internship_portal" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">DSA</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/HEY-leet" target="_blank" rel="noopener">LeetCode Solutions</a></h3><span class="project-type">Java · DSA</span></div>
+                <p class="project-description">A growing collection of coding challenge solutions organized by LeetCode topic.</p>
+                <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Algorithms</span><span>Data structures</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/HEY-leet" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">CORE</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/SPRINGBOOT-CORE" target="_blank" rel="noopener">Spring Boot Fundamentals</a></h3><span class="project-type">Learning repository</span></div>
+                <p class="project-description">Notes and examples from studying Spring Boot fundamentals.</p>
+                <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Spring Boot</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/SPRINGBOOT-CORE" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-art" aria-hidden="true"><span class="project-symbol">C++</span></div>
+              <div>
+                <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/Summer_Assignment_25116CN340" target="_blank" rel="noopener">C++ Summer Assignment</a></h3><span class="project-type">Coursework</span></div>
+                <p class="project-description">A collection of C++ coursework organized by assignment day.</p>
+                <div class="project-bottom"><div class="project-stack"><span>C++</span><span>Coursework</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/Summer_Assignment_25116CN340" target="_blank" rel="noopener">Repository ↗</a></div>
+              </div>
+            </article>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section class="content-section" id="resume">
+          <h2 class="section-title">Resume</h2>
+          <p class="section-intro">A concise snapshot of my education, skills, projects, and problem-solving practice.</p>
+          <div class="resume-card">
+            <div><h3>Harsh Upadhyay — Resume</h3><p>Education · Java backend skills · Selected projects</p></div>
+            <div class="resume-actions"><a class="button primary" href="resume.pdf" target="_blank" rel="noopener">View PDF ↗</a><a class="button" href="resume.html">Print / Save</a></div>
+          </div>
+        </section>
+
+        <section class="content-section" id="contact">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-intro">Open to connecting about software engineering, Java backend development, and collaborative projects.</p>
+          <div class="contact-grid">
+            <a class="contact-link" href="mailto:upadhyayharsh569@gmail.com"><span class="contact-icon" aria-hidden="true">@</span><span class="contact-copy"><strong>Email</strong><span>upadhyayharsh569@gmail.com</span></span></a>
+            <a class="contact-link" href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener"><span class="contact-icon" aria-hidden="true">in</span><span class="contact-copy"><strong>LinkedIn</strong><span>Connect with me</span></span></a>
+            <a class="contact-link" href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener"><span class="contact-icon" aria-hidden="true">LC</span><span class="contact-copy"><strong>LeetCode</strong><span>harshupadhyay2026</span></span></a>
+            <a class="contact-link" href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener"><span class="contact-icon" aria-hidden="true">GH</span><span class="contact-copy"><strong>GitHub</strong><span>Explore my repositories</span></span></a>
+          </div>
+        </section>
+
+        <footer><div class="footer-row"><span>© Harsh Upadhyay</span><a href="#home">Back to top ↑</a></div></footer>
+      </div>
     </main>
 
-    <footer class="shell">
-      <div class="footer-row">
-        <span>© Harsh Upadhyay · Built with care.</span>
-        <a href="#home">Back to top ↑</a>
-      </div>
-    </footer>
+    <script>
+      (function () {
+        const username = "harshupadhyay2026";
+        const apiUrl = "https://leetcode-api-faisalshohag.vercel.app/" + username;
+        const githubApiUrl = "https://github-contributions-api.jogruber.de/v4/Harshupadhyay2026?y=last";
+        const maxProblems = { easy: 974, medium: 2136, hard: 986 };
+        const statusText = document.getElementById("lc-status-text");
+        const statusDot = document.getElementById("lc-dot");
+        const errorBox = document.getElementById("lc-error");
+
+        function escapeHtml(value) {
+          return String(value).replace(/[&<>"']/g, function (char) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char];
+          });
+        }
+
+        function formatNumber(value) {
+          return Number(value).toLocaleString();
+        }
+
+        function setLoading(message, state) {
+          statusText.textContent = message;
+          statusDot.className = "live-dot" + (state ? " " + state : "");
+        }
+
+        function renderHeatmap(calendar) {
+          const heatmap = document.getElementById("lc-heatmap");
+          const counts = calendar || {};
+          const today = new Date();
+          const end = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
+          const start = new Date(end);
+          start.setUTCDate(start.getUTCDate() - 363);
+          start.setUTCDate(start.getUTCDate() - ((start.getUTCDay() + 6) % 7));
+          const values = Object.values(counts).map(Number);
+          const peak = Math.max(1, ...values);
+          const cells = [];
+
+          for (let date = new Date(start); date <= end; date.setUTCDate(date.getUTCDate() + 1)) {
+            const timestamp = Math.floor(date.getTime() / 1000);
+            const count = Number(counts[timestamp] || 0);
+            const level = count === 0 ? 0 : count >= peak * 0.75 ? 4 : count >= peak * 0.5 ? 3 : count >= peak * 0.25 ? 2 : 1;
+            const label = date.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
+            cells.push('<span class="heat-cell" data-level="' + level + '" title="' + escapeHtml(label + ": " + count + " submissions") + '"></span>');
+          }
+
+          heatmap.innerHTML = cells.join("");
+          const activityDays = Object.values(counts).filter(function (count) { return Number(count) > 0; }).length;
+          document.getElementById("lc-activity-caption").textContent = activityDays + " active days · last 12 months";
+        }
+
+        function renderAttempts(attempts) {
+          const container = document.getElementById("lc-attempts");
+          const recent = Array.isArray(attempts) ? attempts.slice(0, 5) : [];
+          if (recent.length === 0) {
+            container.innerHTML = '<p class="attempt-empty">No recent submissions were returned. Visit the LeetCode profile for the latest activity.</p>';
+            return;
+          }
+
+          container.innerHTML = recent.map(function (attempt) {
+            const title = String(attempt.title || "Coding challenge");
+            const slug = String(attempt.titleSlug || "");
+            const url = slug ? "https://leetcode.com/problems/" + encodeURIComponent(slug) + "/" : "https://leetcode.com/u/" + username + "/";
+            const status = String(attempt.statusDisplay || "Submitted");
+            const accepted = status.toLowerCase() === "accepted";
+            const language = String(attempt.lang || "").toUpperCase();
+            const date = new Date(Number(attempt.timestamp) * 1000);
+            const dateText = Number.isNaN(date.getTime()) ? "" : date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+            return '<div class="attempt"><a class="attempt-name" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + escapeHtml(title) + '</a><div class="attempt-meta"><span class="attempt-status' + (accepted ? "" : " failed") + '">' + escapeHtml(status) + '</span><span>' + escapeHtml(language) + '</span><span>' + escapeHtml(dateText) + '</span></div></div>';
+          }).join("");
+        }
+
+        function renderStats(data) {
+          const total = Number(data.totalSolved || 0);
+          const easy = Number(data.easySolved || 0);
+          const medium = Number(data.mediumSolved || 0);
+          const hard = Number(data.hardSolved || 0);
+          document.getElementById("lc-total").textContent = formatNumber(total);
+          document.getElementById("lc-easy").textContent = easy + " / " + formatNumber(data.totalEasy || maxProblems.easy);
+          document.getElementById("lc-medium").textContent = medium + " / " + formatNumber(data.totalMedium || maxProblems.medium);
+          document.getElementById("lc-hard").textContent = hard + " / " + formatNumber(data.totalHard || maxProblems.hard);
+          document.getElementById("lc-easy-bar").style.width = Math.min(100, easy / (data.totalEasy || maxProblems.easy) * 100) + "%";
+          document.getElementById("lc-medium-bar").style.width = Math.min(100, medium / (data.totalMedium || maxProblems.medium) * 100) + "%";
+          document.getElementById("lc-hard-bar").style.width = Math.min(100, hard / (data.totalHard || maxProblems.hard) * 100) + "%";
+          document.getElementById("lc-rank").textContent = data.ranking ? "#" + formatNumber(data.ranking) : "—";
+          const submissions = Array.isArray(data.totalSubmissions) ? data.totalSubmissions.find(function (item) { return item.difficulty === "All"; }) : null;
+          document.getElementById("lc-submissions").textContent = submissions ? formatNumber(submissions.submissions) : "—";
+          renderHeatmap(data.submissionCalendar);
+          renderAttempts(data.recentSubmissions);
+        }
+
+        function renderGithubContributions(data) {
+          if (!Array.isArray(data.contributions)) throw new Error("The response did not contain GitHub contribution data.");
+          const contributions = new Map(data.contributions.map(function (item) { return [item.date, item]; }));
+          const first = new Date(data.contributions[0].date + "T00:00:00Z");
+          const last = new Date(data.contributions[data.contributions.length - 1].date + "T00:00:00Z");
+          if (Number.isNaN(first.getTime()) || Number.isNaN(last.getTime())) throw new Error("The GitHub contribution dates were invalid.");
+          first.setUTCDate(first.getUTCDate() - first.getUTCDay());
+          const cells = [];
+
+          for (let date = new Date(first); date <= last; date.setUTCDate(date.getUTCDate() + 1)) {
+            const dateText = date.toISOString().slice(0, 10);
+            const contribution = contributions.get(dateText);
+            const count = contribution ? Number(contribution.count) : 0;
+            const level = contribution ? Number(contribution.level) : 0;
+            cells.push('<span class="github-cell" data-level="' + Math.max(0, Math.min(4, level)) + '" title="' + escapeHtml(dateText + ": " + count + " contributions") + '"></span>');
+          }
+
+          document.getElementById("github-heatmap").innerHTML = cells.join("");
+          document.getElementById("github-total").textContent = formatNumber(data.total.lastYear) + " contributions · last 12 months";
+        }
+
+        fetch(apiUrl, { headers: { Accept: "application/json" } })
+          .then(function (response) {
+            if (!response.ok) throw new Error("Stats service returned HTTP " + response.status + ".");
+            return response.json();
+          })
+          .then(function (data) {
+            if (!data || !Number.isFinite(Number(data.totalSolved))) throw new Error("The response did not contain valid LeetCode stats.");
+            renderStats(data);
+            setLoading("Live stats", "");
+          })
+          .catch(function (error) {
+            setLoading("Stats unavailable", "error");
+            errorBox.hidden = false;
+            errorBox.textContent = "LeetCode stats could not be loaded right now. The profile link is still available below. " + error.message;
+            document.getElementById("lc-attempts").innerHTML = '<p class="attempt-empty">Recent submissions are temporarily unavailable. View the LeetCode profile for current activity.</p>';
+          });
+
+        fetch(githubApiUrl, { headers: { Accept: "application/json" } })
+          .then(function (response) {
+            if (!response.ok) throw new Error("GitHub contribution service returned HTTP " + response.status + ".");
+            return response.json();
+          })
+          .then(renderGithubContributions)
+          .catch(function (error) {
+            const errorBox = document.getElementById("github-error");
+            errorBox.hidden = false;
+            errorBox.textContent = "GitHub contribution activity could not be loaded right now. " + error.message;
+            document.getElementById("github-total").textContent = "Contributions unavailable";
+          });
+      }());
+    </script>
   </body>
 </html>
