@@ -326,7 +326,8 @@
         .project-card { min-height: 230px; }
         .practice-card, .contact-card { grid-template-columns: 1fr; }
         .practice-badge { display: none; }
-        .contact-actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 14px; }
+        .contact-actions { width: 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 14px; }
+        .contact-actions .button { width: 100%; max-width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
         .footer-row { flex-direction: column; gap: 5px; }
       }
 
