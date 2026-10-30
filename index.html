@@ -8,304 +8,49 @@
     <title>Harsh Upadhyay | Software Developer</title>
     <link rel="preconnect" href="https://avatars.githubusercontent.com">
     <link rel="preconnect" href="https://leetcode-api-faisalshohag.vercel.app">
-    <style>
-      :root {
-        color-scheme: light;
-        --ink: #20232a;
-        --muted: #656b76;
-        --soft: #858b96;
-        --paper: #fff;
-        --canvas: #f8f9fb;
-        --line: #e6e8ec;
-        --blue: #5368e8;
-        --blue-dark: #3e50c8;
-        --green: #238a57;
-        --green-soft: #e9f7ef;
-        --red: #bd4d4d;
-        --shadow: 0 10px 32px rgba(27, 38, 67, 0.055);
-      }
-
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        color: var(--ink);
-        background: var(--canvas);
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        font-size: 15px;
-        line-height: 1.65;
-        -webkit-font-smoothing: antialiased;
-      }
-      a { color: var(--blue-dark); text-decoration: none; }
-      a:hover { text-decoration: underline; text-underline-offset: 3px; }
-      a:focus-visible, button:focus-visible { outline: 3px solid #aeb8ff; outline-offset: 3px; }
-      img { max-width: 100%; }
-      .shell { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
-
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 5;
-        border-bottom: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.94);
-        backdrop-filter: blur(14px);
-      }
-      .topbar-inner { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-      .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 720; letter-spacing: -0.02em; }
-      .brand:hover { text-decoration: none; }
-      .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: #fff; background: var(--blue); font-size: 0.9rem; }
-      .top-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 0.9rem; }
-      .top-links a { color: inherit; }
-      .top-links .top-cta { color: var(--blue-dark); font-weight: 700; }
-
-      .layout { display: grid; grid-template-columns: 252px minmax(0, 1fr); gap: 42px; align-items: start; padding-block: 34px 68px; }
-      .sidebar { position: sticky; top: 96px; min-width: 0; }
-      .profile-card { padding: 21px 19px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
-      .avatar-wrap { position: relative; width: 164px; max-width: 100%; margin: 0 auto 17px; }
-      .avatar { display: block; width: 100%; aspect-ratio: 1; border: 1px solid var(--line); border-radius: 50%; background: #e8ecfa; object-fit: cover; }
-      .avatar-status { position: absolute; right: 5px; bottom: 8px; width: 21px; height: 21px; border: 4px solid white; border-radius: 50%; background: #45a875; }
-      .profile-name { margin: 0; font-size: 1.34rem; font-weight: 700; letter-spacing: -0.035em; line-height: 1.25; }
-      .profile-handle { margin: 3px 0 13px; color: var(--soft); }
-      .profile-bio { margin: 0; color: #434954; font-size: 0.9rem; line-height: 1.65; }
-      .side-links { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; }
-      .side-links li { min-width: 0; display: flex; align-items: flex-start; gap: 10px; color: var(--muted); font-size: 0.84rem; line-height: 1.45; }
-      .side-links .side-icon { width: 17px; flex: 0 0 17px; text-align: center; }
-      .side-links a { overflow-wrap: anywhere; }
-      .side-rule { height: 1px; margin: 19px 0 15px; border: 0; background: var(--line); }
-      .side-label { margin: 0 0 10px; color: var(--soft); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-      .focus-badges { display: flex; flex-wrap: wrap; gap: 7px; }
-      .focus-badge { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: #535b68; background: #fbfbfc; font-size: 0.73rem; font-weight: 620; }
-
-      .main { min-width: 0; }
-      .tabs { display: flex; gap: 24px; overflow-x: auto; border-bottom: 1px solid var(--line); margin-bottom: 0; }
-      .tabs a { flex: 0 0 auto; padding: 10px 1px 12px; color: var(--muted); font-size: 0.88rem; font-weight: 550; }
-      .tabs a:first-child { border-bottom: 2px solid #e66c58; color: var(--ink); font-weight: 700; }
-      .content-section { padding: 28px 0 31px; border-bottom: 1px solid var(--line); scroll-margin-top: 84px; }
-      .content-section:last-child { border-bottom: 0; }
-      .section-title { margin: 0 0 7px; font-size: 1.28rem; font-weight: 720; letter-spacing: -0.035em; line-height: 1.3; }
-      .section-intro { margin: 0 0 17px; color: var(--muted); font-size: 0.91rem; }
-      .about-lead { margin: 0 0 16px; color: #404651; font-size: 0.96rem; }
-      .subheading { margin: 20px 0 6px; font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; }
-      .body-copy { margin: 0; color: var(--muted); font-size: 0.9rem; }
-      .value-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
-      .value-card { padding: 13px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
-      .value-card strong { display: block; margin-bottom: 3px; font-size: 0.84rem; }
-      .value-card span { display: block; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
-
-      .skill-groups { display: grid; gap: 17px; }
-      .skill-group { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 15px; align-items: start; }
-      .skill-group-name { padding-top: 5px; color: #555d69; font-size: 0.84rem; font-weight: 680; }
-      .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
-      .skill-chip { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: #444b57; font-size: 0.8rem; }
-      .skill-chip img { width: 16px; height: 16px; object-fit: contain; }
-
-      .leetcode-panel { padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-      .leetcode-top { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 17px; }
-      .leetcode-user { display: flex; align-items: center; gap: 10px; }
-      .lc-mark { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 11px; color: #b77800; background: #fff5df; font-size: 1.05rem; font-weight: 800; }
-      .leetcode-user strong { display: block; font-size: 0.94rem; }
-      .leetcode-user span { display: block; color: var(--muted); font-size: 0.79rem; }
-      .live-status { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 0.76rem; white-space: nowrap; }
-      .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #45a875; }
-      .live-dot.loading { background: #e5a839; }
-      .live-dot.error { background: #d15858; }
-      .lc-summary { display: grid; grid-template-columns: 1.05fr 2fr; gap: 14px; align-items: stretch; }
-      .lc-total { display: grid; place-content: center; min-height: 156px; padding: 16px; border: 1px solid #eee5d5; border-radius: 10px; background: #fffcf6; text-align: center; }
-      .lc-total-value { display: block; color: #9c6900; font-size: 2.45rem; font-weight: 760; letter-spacing: -0.06em; line-height: 1.1; }
-      .lc-total-label { display: block; margin-top: 5px; color: var(--muted); font-size: 0.8rem; }
-      .lc-breakdown { display: grid; gap: 9px; align-content: center; }
-      .difficulty-row { display: grid; grid-template-columns: 65px 1fr 68px; align-items: center; gap: 10px; font-size: 0.79rem; }
-      .difficulty-name { color: var(--muted); }
-      .difficulty-name.easy { color: #299761; }
-      .difficulty-name.medium { color: #c2811a; }
-      .difficulty-name.hard { color: #d35f5f; }
-      .difficulty-track { height: 7px; overflow: hidden; border-radius: 10px; background: #eff0f3; }
-      .difficulty-fill { display: block; width: 0; height: 100%; border-radius: inherit; transition: width 500ms ease; }
-      .difficulty-fill.easy { background: #4caf7a; }
-      .difficulty-fill.medium { background: #e5a839; }
-      .difficulty-fill.hard { background: #dd7070; }
-      .difficulty-value { color: #444b57; text-align: right; white-space: nowrap; }
-      .lc-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-      .lc-pill { padding: 5px 9px; border-radius: 7px; color: #59616c; background: #f4f5f7; font-size: 0.76rem; }
-      .lc-error { margin: 10px 0 0; color: var(--red); font-size: 0.82rem; }
-      .lc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 0.83rem; font-weight: 680; }
-      .lc-heatmap-wrap { margin-top: 19px; }
-      .heatmap-heading { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 8px; }
-      .heatmap-heading strong { font-size: 0.87rem; }
-      .heatmap-heading span { color: var(--soft); font-size: 0.75rem; }
-      .heatmap-scroll { overflow-x: auto; padding-bottom: 4px; }
-      .heatmap-grid { display: grid; grid-template-rows: repeat(7, 11px); grid-auto-flow: column; grid-auto-columns: 11px; gap: 3px; width: max-content; min-width: 100%; }
-      .heat-cell { width: 11px; height: 11px; border-radius: 2px; background: #eff0f2; }
-      .heat-cell[data-level="1"] { background: #d2e8d9; }
-      .heat-cell[data-level="2"] { background: #9ed1ae; }
-      .heat-cell[data-level="3"] { background: #5da977; }
-      .heat-cell[data-level="4"] { background: #287c4d; }
-      .heat-cell.empty { opacity: 0; }
-      .heatmap-legend { display: flex; justify-content: flex-end; align-items: center; gap: 4px; margin-top: 7px; color: var(--soft); font-size: 0.7rem; }
-      .heatmap-legend .heat-cell { display: inline-block; }
-      .recent-title { margin: 22px 0 9px; font-size: 0.94rem; font-weight: 700; }
-      .attempt-list { display: grid; gap: 0; }
-      .attempt { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid #f0f1f3; }
-      .attempt-name { overflow: hidden; color: var(--ink); font-size: 0.83rem; font-weight: 610; text-overflow: ellipsis; white-space: nowrap; }
-      .attempt-name:hover { color: var(--blue-dark); }
-      .attempt-meta { display: flex; align-items: center; gap: 9px; color: var(--soft); font-size: 0.73rem; }
-      .attempt-status { color: var(--green); font-weight: 700; }
-      .attempt-status.failed { color: var(--red); }
-      .attempt-empty { padding: 12px 0; color: var(--muted); font-size: 0.83rem; }
-
-      .github-panel { padding: 17px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-      .github-chart-scroll { overflow-x: auto; }
-      .github-heatmap { display: grid; grid-template-rows: repeat(7, 11px); grid-auto-flow: column; grid-auto-columns: 11px; gap: 3px; width: max-content; min-width: 100%; }
-      .github-cell { width: 11px; height: 11px; border-radius: 2px; background: #eff0f2; }
-      .github-cell[data-level="1"] { background: #d2e8d9; }
-      .github-cell[data-level="2"] { background: #9ed1ae; }
-      .github-cell[data-level="3"] { background: #5da977; }
-      .github-cell[data-level="4"] { background: #287c4d; }
-      .github-note { margin: 9px 0 0; color: var(--soft); font-size: 0.76rem; }
-
-      .project-list { display: grid; gap: 0; }
-      .project {
-        display: grid;
-        grid-template-columns: 122px minmax(0, 1fr);
-        gap: 17px;
-        padding: 17px 0;
-        border-top: 1px solid var(--line);
-      }
-      .project:first-child { padding-top: 0; border-top: 0; }
-      .project-art { position: relative; min-height: 92px; display: grid; place-items: center; overflow: hidden; border: 1px solid #eaebf0; border-radius: 9px; background: linear-gradient(145deg, #f1f3ff, #f8fbff); }
-      .project-art::before, .project-art::after { position: absolute; width: 68px; height: 68px; border: 1px solid rgba(83, 104, 232, .12); border-radius: 50%; content: ""; }
-      .project-art::after { width: 42px; height: 42px; }
-      .project-symbol { position: relative; z-index: 1; color: var(--blue-dark); font-size: 1.25rem; font-weight: 800; letter-spacing: -0.06em; }
-      .project:nth-child(2) .project-art { background: linear-gradient(145deg, #edf8f3, #f8fcf8); }
-      .project:nth-child(2) .project-symbol { color: #288252; }
-      .project:nth-child(3) .project-art { background: linear-gradient(145deg, #fff5e8, #fffaf3); }
-      .project:nth-child(3) .project-symbol { color: #aa7520; }
-      .project:nth-child(4) .project-art { background: linear-gradient(145deg, #eef7ff, #f8fbff); }
-      .project:nth-child(4) .project-symbol { color: #3978a8; }
-      .project-title-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px 11px; margin-bottom: 4px; }
-      .project-title { margin: 0; font-size: 0.97rem; font-weight: 700; letter-spacing: -0.02em; }
-      .project-title a { color: var(--blue-dark); }
-      .project-type { color: var(--soft); font-size: 0.73rem; }
-      .project-description { margin: 0 0 8px; color: #606671; font-size: 0.83rem; line-height: 1.55; }
-      .project-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 13px; }
-      .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-      .project-stack span { padding: 2px 7px; border-radius: 5px; color: #5d6570; background: #f1f2f4; font-size: 0.69rem; }
-      .repo-link { font-size: 0.77rem; font-weight: 650; white-space: nowrap; }
-
-      .resume-card { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px; border: 1px solid var(--line); border-radius: 11px; background: #fff; }
-      .resume-card h3 { margin: 0 0 3px; font-size: 0.95rem; }
-      .resume-card p { margin: 0; color: var(--muted); font-size: 0.8rem; }
-      .resume-actions { display: flex; flex: 0 0 auto; gap: 8px; }
-      .button { display: inline-flex; justify-content: center; align-items: center; gap: 7px; min-height: 39px; padding: 0 13px; border: 1px solid var(--line); border-radius: 8px; color: #343a44; background: white; font-size: 0.8rem; font-weight: 680; }
-      .button:hover { border-color: #bfc8fb; color: var(--blue-dark); text-decoration: none; }
-      .button.primary { border-color: var(--blue); color: #fff; background: var(--blue); }
-      .button.primary:hover { border-color: var(--blue-dark); background: var(--blue-dark); color: #fff; }
-
-      .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
-      .contact-link { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 13px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: #fff; }
-      .contact-link:hover { border-color: #c7cdf5; text-decoration: none; }
-      .contact-icon { width: 32px; height: 32px; display: grid; place-items: center; flex: 0 0 32px; border-radius: 8px; color: var(--blue-dark); background: #f0f2ff; font-size: 0.76rem; font-weight: 750; }
-      .contact-copy { min-width: 0; }
-      .contact-copy strong { display: block; font-size: 0.81rem; }
-      .contact-copy span { display: block; overflow: hidden; color: var(--muted); font-size: 0.73rem; text-overflow: ellipsis; white-space: nowrap; }
-      footer { padding: 22px 0 0; color: var(--soft); font-size: 0.76rem; }
-      .footer-row { display: flex; justify-content: space-between; gap: 15px; padding-top: 13px; border-top: 1px solid var(--line); }
-
-      @media (max-width: 850px) {
-        .layout { grid-template-columns: 210px minmax(0, 1fr); gap: 25px; }
-        .avatar-wrap { width: 135px; }
-        .profile-card { padding: 17px 15px; }
-        .value-grid { grid-template-columns: 1fr; }
-        .skill-group { grid-template-columns: 115px minmax(0, 1fr); }
-      }
-      @media (max-width: 650px) {
-        .shell { width: min(100% - 30px, 1200px); }
-        .topbar-inner { min-height: 58px; }
-        .top-links { gap: 12px; font-size: 0.8rem; }
-        .layout { grid-template-columns: 1fr; gap: 19px; padding-top: 19px; }
-        .sidebar { position: static; }
-        .profile-card { display: grid; grid-template-columns: 74px minmax(0, 1fr); column-gap: 15px; align-items: center; padding: 15px; }
-        .avatar-wrap { grid-row: span 3; width: 74px; margin: 0; }
-        .avatar-status { right: 0; bottom: 3px; width: 17px; height: 17px; border-width: 3px; }
-        .profile-name { font-size: 1.05rem; }
-        .profile-handle { margin: 1px 0 3px; font-size: 0.82rem; }
-        .profile-bio { font-size: 0.79rem; }
-        .profile-counts, .side-links, .side-rule, .side-label, .focus-badges { display: none; }
-        .tabs { gap: 19px; }
-        .tabs a { font-size: 0.81rem; }
-        .content-section { padding-block: 22px 25px; }
-        .lc-summary { grid-template-columns: 1fr; }
-        .lc-total { min-height: 115px; }
-        .skill-group { grid-template-columns: 1fr; gap: 5px; }
-        .skill-group-name { padding: 0; }
-        .project { grid-template-columns: 83px minmax(0, 1fr); gap: 12px; }
-        .project-art { min-height: 75px; }
-        .project-symbol { font-size: 1rem; }
-        .resume-card { align-items: flex-start; flex-direction: column; }
-        .resume-actions { flex-wrap: wrap; }
-      }
-      @media (max-width: 420px) {
-        .top-links { gap: 10px; }
-        .top-links a:nth-child(2) { display: none; }
-        .contact-grid { grid-template-columns: 1fr; }
-        .attempt-meta { gap: 5px; }
-        .attempt-name { font-size: 0.78rem; }
-      }
-      @media (max-width: 350px) {
-        .top-links a:first-child { display: none; }
-        .leetcode-top { flex-wrap: wrap; }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="topbar">
       <nav class="topbar-inner shell" aria-label="Main navigation">
-        <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">H</span><span>Harsh Upadhyay</span></a>
-        <div class="top-links">
-          <a href="#about">Overview</a>
+        <a class="brand" href="#home" aria-label="Harsh Upadhyay home"><span class="brand-mark" aria-hidden="true">H</span><span>Harsh Upadhyay</span></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-links" aria-label="Open navigation menu">☰</button>
+        <div class="top-links" id="primary-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
-          <a class="top-cta" href="#contact">Contact ↗</a>
+          <a href="#leetcode">LeetCode</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
 
-    <main class="layout shell" id="home">
-      <aside class="sidebar" aria-label="Profile">
-        <div class="profile-card">
-          <div class="avatar-wrap">
-            <img class="avatar" src="https://avatars.githubusercontent.com/u/287495828?v=4" alt="Harsh Upadhyay profile photo">
-            <span class="avatar-status" title="Open to connecting" aria-label="Open to connecting"></span>
+    <main class="shell page-main" id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">B.Tech CSIT · G.L. Bajaj</p>
+          <h1 class="hero-title" id="hero-title">Building useful software <span>one problem at a time.</span></h1>
+          <p class="hero-intro">I’m Harsh, an aspiring software development engineer focused on Java, Spring Boot, and data structures. I turn what I learn into practical projects, from backend APIs to SkillSwap, a student skill-exchange platform.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
+            <a class="button" href="#contact">Get in touch</a>
           </div>
-          <h1 class="profile-name">Harsh Upadhyay</h1>
-          <p class="profile-handle">harshupadhyay2026 · software developer</p>
-          <p class="profile-bio">B.Tech CSIT student | Aspiring SDE | Java &amp; Spring Boot</p>
-          <ul class="side-links">
-            <li><span class="side-icon" aria-hidden="true">▤</span><span>G.L. Bajaj Institute of Technology and Management</span></li>
-            <li><span class="side-icon" aria-hidden="true">⌖</span><a href="mailto:upadhyayharsh569@gmail.com">upadhyayharsh569@gmail.com</a></li>
-            <li><span class="side-icon" aria-hidden="true">in</span><a href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener">linkedin.com/in/harsh-upadhyay</a></li>
-            <li><span class="side-icon" aria-hidden="true">◎</span><a href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">leetcode.com/u/harshupadhyay2026</a></li>
-            <li><span class="side-icon" aria-hidden="true">◉</span><a href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">github.com/Harshupadhyay2026</a></li>
-            <li><span class="side-icon" aria-hidden="true">↗</span><a href="https://harshupadhyay2026.github.io">harshupadhyay2026.github.io</a></li>
-          </ul>
-          <hr class="side-rule">
-          <p class="side-label">Highlights</p>
-          <div class="focus-badges"><span class="focus-badge">Java Backend</span><span class="focus-badge">Spring Boot</span><span class="focus-badge">DSA</span></div>
+          <div class="hero-links" aria-label="Social profiles">
+            <a href="https://github.com/Harshupadhyay2026" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/harsh-upadhyay-96b903335/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://leetcode.com/u/harshupadhyay2026/" target="_blank" rel="noopener">LeetCode ↗</a>
+          </div>
         </div>
-      </aside>
+        <div class="hero-visual" aria-label="Harsh Upadhyay">
+          <div class="hero-portrait-frame"><img class="hero-portrait" src="https://avatars.githubusercontent.com/u/287495828?v=4" alt="Harsh Upadhyay"></div>
+          <div class="hero-float"><span>Currently building</span>SkillSwap · Java / Spring Boot</div>
+        </div>
+      </section>
 
       <div class="main">
-        <nav class="tabs" aria-label="Profile sections">
-          <a href="#about">Overview</a>
-          <a href="#skills">Skills</a>
-          <a href="#leetcode">LeetCode</a>
-          <a href="#activity">Activity</a>
-          <a href="#projects">Projects</a>
-        </nav>
 
-        <section class="content-section" id="about">
+        <section class="content-section reveal" id="about">
           <p class="about-lead"><strong>B.Tech CSIT student at G.L. Bajaj Institute of Technology and Management.</strong> I’m building a strong foundation in software engineering through hands-on projects, consistent problem solving, and curiosity about how reliable applications are made.</p>
           <h2 class="section-title">Who I am</h2>
           <p class="body-copy">I’m an aspiring software development engineer with a particular interest in Java backend development. I enjoy taking an idea from the data model and API through to an application people can use, and I’m currently exploring Generative AI alongside my core software engineering skills.</p>
@@ -320,7 +65,7 @@
           </div>
         </section>
 
-        <section class="content-section" id="skills">
+        <section class="content-section reveal" id="skills">
           <h2 class="section-title">Skills</h2>
           <p class="section-intro">The tools and foundations I’m using as I grow as a developer.</p>
           <div class="skill-groups">
@@ -369,7 +114,7 @@
           </div>
         </section>
 
-        <section class="content-section" id="leetcode">
+        <section class="content-section reveal" id="leetcode">
           <h2 class="section-title">LeetCode</h2>
           <p class="section-intro">Live problem-solving stats and recent submissions from my LeetCode profile.</p>
           <div class="leetcode-panel">
@@ -401,7 +146,7 @@
           </div>
         </section>
 
-        <section class="content-section" id="activity">
+        <section class="content-section reveal" id="activity">
           <h2 class="section-title">GitHub Contribution</h2>
           <p class="section-intro">A snapshot of my public GitHub contribution activity.</p>
           <div class="github-panel">
@@ -415,11 +160,19 @@
           </div>
         </section>
 
-        <section class="content-section" id="projects">
+        <section class="content-section reveal" id="projects">
           <h2 class="section-title">Projects</h2>
           <p class="section-intro">Selected work across full-stack development, backend APIs, Java, Python, C++, and coding practice. Explore each repository for the source.</p>
+          <div class="project-filters" role="group" aria-label="Filter projects">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-button" type="button" data-filter="java" aria-pressed="false">Java</button>
+            <button class="filter-button" type="button" data-filter="spring" aria-pressed="false">Spring Boot</button>
+            <button class="filter-button" type="button" data-filter="python" aria-pressed="false">Python</button>
+            <button class="filter-button" type="button" data-filter="cpp" aria-pressed="false">C++</button>
+          </div>
+          <p class="project-count" id="project-count" aria-live="polite"></p>
           <div class="project-list">
-            <article class="project">
+            <article class="project" data-categories="java spring react">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">SS</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/skillswap" target="_blank" rel="noopener">SkillSwap</a></h3><span class="project-type">Full-stack learning platform</span></div>
@@ -427,7 +180,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>Java 21</span><span>Spring Boot</span><span>React</span><span>MySQL</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/skillswap" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="java spring">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">API</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/springboot_crud_dev" target="_blank" rel="noopener">Student CRUD Application</a></h3><span class="project-type">REST API</span></div>
@@ -435,7 +188,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Spring Boot</span><span>Spring Data JPA</span><span>MySQL</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/springboot_crud_dev" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="java spring">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">CRUD</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/springboot_crud_app" target="_blank" rel="noopener">Spring Boot CRUD App</a></h3><span class="project-type">Java practice project</span></div>
@@ -443,7 +196,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Spring Boot</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/springboot_crud_app" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="java">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">BM</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS" target="_blank" rel="noopener">Bank Management System</a></h3><span class="project-type">Java · OOP</span></div>
@@ -451,7 +204,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>Java</span><span>OOP</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/JAVA_PROJECTS_BASICS" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="python">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">BAT</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/Battery_notifications_project" target="_blank" rel="noopener">Battery Notifier</a></h3><span class="project-type">Python · Termux</span></div>
@@ -459,7 +212,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>Python</span><span>Termux</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/Battery_notifications_project" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="cpp">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">C++</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/Internship_portal" target="_blank" rel="noopener">C++ Console Applications</a></h3><span class="project-type">Programming fundamentals</span></div>
@@ -467,7 +220,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>C++</span><span>Console applications</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/Internship_portal" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="java">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">DSA</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/HEY-leet" target="_blank" rel="noopener">LeetCode Solutions</a></h3><span class="project-type">Java · DSA</span></div>
@@ -475,7 +228,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Algorithms</span><span>Data structures</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/HEY-leet" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="java spring">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">CORE</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/SPRINGBOOT-CORE" target="_blank" rel="noopener">Spring Boot Fundamentals</a></h3><span class="project-type">Learning repository</span></div>
@@ -483,7 +236,7 @@
                 <div class="project-bottom"><div class="project-stack"><span>Java</span><span>Spring Boot</span></div><a class="repo-link" href="https://github.com/Harshupadhyay2026/SPRINGBOOT-CORE" target="_blank" rel="noopener">Repository ↗</a></div>
               </div>
             </article>
-            <article class="project">
+            <article class="project" data-categories="cpp">
               <div class="project-art" aria-hidden="true"><span class="project-symbol">C++</span></div>
               <div>
                 <div class="project-title-row"><h3 class="project-title"><a href="https://github.com/Harshupadhyay2026/Summer_Assignment_25116CN340" target="_blank" rel="noopener">C++ Summer Assignment</a></h3><span class="project-type">Coursework</span></div>
@@ -494,7 +247,7 @@
           </div>
         </section>
 
-        <section class="content-section" id="resume">
+        <section class="content-section reveal" id="resume">
           <h2 class="section-title">Resume</h2>
           <p class="section-intro">A concise snapshot of my education, skills, projects, and problem-solving practice.</p>
           <div class="resume-card">
@@ -503,7 +256,7 @@
           </div>
         </section>
 
-        <section class="content-section" id="contact">
+        <section class="content-section reveal" id="contact">
           <h2 class="section-title">Contact</h2>
           <p class="section-intro">Open to connecting about software engineering, Java backend development, and collaborative projects.</p>
           <div class="contact-grid">
@@ -658,6 +411,94 @@
             errorBox.textContent = "GitHub contribution activity could not be loaded right now. " + error.message;
             document.getElementById("github-total").textContent = "Contributions unavailable";
           });
+      }());
+    </script>
+    <script>
+      (function () {
+        const menuButton = document.querySelector(".menu-toggle");
+        const menu = document.getElementById("primary-links");
+        const navLinks = Array.from(menu.querySelectorAll('a[href^="#"]'));
+        const sections = navLinks
+          .map(function (link) { return document.querySelector(link.getAttribute("href")); })
+          .filter(Boolean);
+
+        function closeMenu() {
+          menu.classList.remove("is-open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation menu");
+          menuButton.textContent = "☰";
+        }
+
+        menuButton.addEventListener("click", function () {
+          const isOpen = menuButton.getAttribute("aria-expanded") !== "true";
+          menu.classList.toggle("is-open", isOpen);
+          menuButton.setAttribute("aria-expanded", String(isOpen));
+          menuButton.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+          menuButton.textContent = isOpen ? "×" : "☰";
+        });
+
+        menu.addEventListener("click", function (event) {
+          if (event.target.closest("a")) closeMenu();
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") closeMenu();
+        });
+
+        const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
+        const projects = Array.from(document.querySelectorAll(".project"));
+        const projectCount = document.getElementById("project-count");
+
+        function filterProjects(filter) {
+          let visibleCount = 0;
+          projects.forEach(function (project) {
+            const categories = project.dataset.categories.split(" ");
+            const visible = filter === "all" || categories.includes(filter);
+            project.hidden = !visible;
+            if (visible) visibleCount += 1;
+          });
+          projectCount.textContent = "Showing " + visibleCount + " project" + (visibleCount === 1 ? "" : "s");
+          filterButtons.forEach(function (button) {
+            button.setAttribute("aria-pressed", String(button.dataset.filter === filter));
+          });
+        }
+
+        filterButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            filterProjects(button.dataset.filter);
+          });
+        });
+        filterProjects("all");
+
+        function updateActiveLink() {
+          let activeSection = null;
+          sections.forEach(function (section) {
+            if (section.getBoundingClientRect().top <= 130) activeSection = section;
+          });
+          navLinks.forEach(function (link) {
+            if (activeSection && link.getAttribute("href") === "#" + activeSection.id) {
+              link.setAttribute("aria-current", "location");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", updateActiveLink, { passive: true });
+        window.addEventListener("resize", updateActiveLink);
+        updateActiveLink();
+
+        if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.body.classList.add("motion-ready");
+          const observer = new IntersectionObserver(function (entries, currentObserver) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              currentObserver.unobserve(entry.target);
+            });
+          }, { threshold: 0.12 });
+          document.querySelectorAll(".reveal").forEach(function (section) { observer.observe(section); });
+        }
       }());
     </script>
   </body>
